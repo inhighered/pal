@@ -1,0 +1,25 @@
+<div id="content" "hx-swap-oob=beforeend:#content">
+
+    <div>
+
+    {% for item in prev_messages %}
+        
+        {% if prev_messages[item]['message_type'] == "user" %}
+        <div>
+            User: {{ prev_messages[item]['message'] }} <br/>
+        <div/>
+        {% endif %}
+                
+        {% if prev_messages[item]['message_type'] == "system" %}
+        <div>
+            System: {{ prev_messages[item]['message'] }} <br/>
+        <div/>
+        {% endif %}
+    {% endfor %}
+    
+    </div>
+    
+    <div> 
+       System: {{current_message}} <br/>
+    </div>
+</div>

@@ -1,0 +1,18 @@
+<table class="uk-table uk-table-divider">
+    <thead>
+        <tr>
+            {% for key in records[0] %}
+                <th>{{ key }}</th>
+            {% endfor %}
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for record in records %}
+            <tr>
+                {% for key in record %}
+                    <td>{{ record[key] }}</td>
+                {% endfor %}
+            </tr>
+    </tbody>
+</table>
