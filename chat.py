@@ -2,6 +2,8 @@
 from fastapi import WebSocket
 from jinja2 import Environment, FileSystemLoader
 
+from src.llm.simple import open_ai_stream
+
 import asyncio
 from dataclasses import dataclass
 from copy import deepcopy
@@ -87,11 +89,49 @@ async def chat_streamer(user_message:str, chat_history: ChatHistory):
         }
 
         chat = chat_template.render(**context)
-        print(chat)
+        #print(chat)
         yield chat
 
+
+
+async def chat_streamer_open_ai(user_message:str, chat_history: ChatHistory):
+
+    # chat_history = ChatHistory()
+    sys_response = ""
+
+    await chat_history.new_message("user", user_message)
+    prev_messages = deepcopy(chat_history.history)
+    await chat_history.new_message("system", sys_response)
+
+    stream = open_ai_stream(user_message)
+    for chunk in stream:
+        if chunk.choices[0].delta.content is None:
+            continue
+
+        # call llm (return generator)
+        # sys_response = " system message #"
+        # sys_response = sys_response + str(i)
+        sys_response = sys_response + chunk.choices[0].delta.content
+
+
+        await chat_history.update_latest_message("system", sys_response)
+
+        #await asyncio.sleep(0.1)
+
+        print(prev_messages)
+        context = {
+        "prev_messages": prev_messages,
+        "current_message": sys_response
+        }
+
+        chat = chat_template.render(**context)
+        print(chat)
+
+        yield chat
+
+
 async def chat_stream_renderer(websocket: WebSocket, user_messages, chat_history):
-    async for my_text in chat_streamer(user_messages, chat_history):
+    async for my_text in chat_streamer_open_ai(user_messages, chat_history):
         await websocket.send_text(my_text)
 
 async def handle_websocket_chat(websocket: WebSocket, chat_history: ChatHistory):

@@ -42,6 +42,7 @@ async def websocket_endpoint(websocket: WebSocket):
 
     await handle_websocket_chat(websocket, chat_history)
 
+
 @app.get("/clear_chat")
 async def clear_chat():
     chat_history.clear_history()
