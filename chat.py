@@ -1,8 +1,9 @@
 
 from fastapi import WebSocket
 from jinja2 import Environment, FileSystemLoader
+import markdown
 
-from src.llm.simple import open_ai_stream
+from pal import open_ai_stream, create_and_query_vdb, create_and_retreive_context_vdb
 
 import asyncio
 from dataclasses import dataclass
@@ -60,37 +61,37 @@ class ChatHistory:
 # start a new chat history with the user session
 
 
-async def chat_streamer(user_message:str, chat_history: ChatHistory):
+# async def chat_streamer(user_message:str, chat_history: ChatHistory):
 
 
-    # chat_history = ChatHistory()
-    sys_response = ""
+#     # chat_history = ChatHistory()
+#     sys_response = ""
 
-    await chat_history.new_message("user", user_message)
-    prev_messages = deepcopy(chat_history.history)
-    await chat_history.new_message("system", sys_response)
+#     await chat_history.new_message("user", user_message)
+#     prev_messages = deepcopy(chat_history.history)
+#     await chat_history.new_message("system", sys_response)
 
-    for i in range(3):
+#     for i in range(3):
 
-        # call llm (return generator)
-        sys_response = " system message #"
-        sys_response = sys_response + str(i)
+#         # call llm (return generator)
+#         sys_response = " system message #"
+#         sys_response = sys_response + str(i)
 
-        await chat_history.update_latest_message("system", sys_response)
+#         await chat_history.update_latest_message("system", sys_response)
 
-        # Prob need form here
+#         # Prob need form here
 
-        await asyncio.sleep(0.1)
+#         await asyncio.sleep(0.1)
 
-        print(prev_messages)
-        context = {
-        "prev_messages": prev_messages,
-        "current_message": sys_response
-        }
+#         print(prev_messages)
+#         context = {
+#         "prev_messages": prev_messages,
+#         "current_message": sys_response
+#         }
 
-        chat = chat_template.render(**context)
-        #print(chat)
-        yield chat
+#         chat = chat_template.render(**context)
+#         #print(chat)
+#         yield chat
 
 
 
@@ -116,7 +117,7 @@ async def chat_streamer_open_ai(user_message:str, chat_history: ChatHistory):
 
         await chat_history.update_latest_message("system", sys_response)
 
-        #await asyncio.sleep(0.1)
+        await asyncio.sleep(0.1)
 
         print(prev_messages)
         context = {
@@ -130,8 +131,50 @@ async def chat_streamer_open_ai(user_message:str, chat_history: ChatHistory):
         yield chat
 
 
+async def chat_streamer_llama_index(user_message:str, chat_history: ChatHistory):
+    sys_response = ""
+
+    await chat_history.new_message("user", user_message)
+    prev_messages = deepcopy(chat_history.history)
+    await chat_history.new_message("system", sys_response)
+
+    stream = create_and_query_vdb(user_message).response_gen
+    reference_info = create_and_retreive_context_vdb(user_message)
+    reference_info = markdown.markdown(reference_info)
+    print("reference_info--------------\n ", reference_info)
+    for chunk in stream:
+        if chunk is None:
+            continue
+
+        # call llm (return generator)
+        # sys_response = " system message #"
+        # sys_response = sys_response + str(i)
+        sys_response = sys_response + chunk
+
+
+        await chat_history.update_latest_message("system", sys_response)
+
+        #await asyncio.sleep(0.1)
+
+        print(prev_messages)
+        context = {
+        "prev_messages": prev_messages,
+        "current_message": sys_response,
+        "reference_info": reference_info
+        }
+
+        chat = chat_template.render(**context)
+        #print(chat)
+
+        #print(chat)
+
+        yield chat
+
+
 async def chat_stream_renderer(websocket: WebSocket, user_messages, chat_history):
-    async for my_text in chat_streamer_open_ai(user_messages, chat_history):
+    # async for my_text in chat_streamer_open_ai(user_messages, chat_history):
+    #     await websocket.send_text(my_text)
+    async for my_text in chat_streamer_llama_index(user_messages, chat_history):
         await websocket.send_text(my_text)
 
 async def handle_websocket_chat(websocket: WebSocket, chat_history: ChatHistory):
