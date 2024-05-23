@@ -1,1 +1,8 @@
 *.ps1
+**/tests/data/**
+**.egg-info
+**.egg
+**/__pycache__/**
+data/**
+**/.ipynb_checkpoints/**
+**/*.ipynb

@@ -4,6 +4,7 @@ from fastapi import FastAPI, WebSocket
 from fastapi.responses import HTMLResponse
 from fastapi import Request
 from fastapi.templating import Jinja2Templates
+from fastapi.staticfiles import StaticFiles
 
 import uuid
 import asyncio
@@ -18,6 +19,12 @@ logger = logging.getLogger(__name__)
 
 app = FastAPI()
 templates = Jinja2Templates(directory="templates")
+
+# --------------------------------------------------------------------------------
+# Static Files
+# --------------------------------------------------------------------------------
+
+app.mount("/static", StaticFiles(directory="static"), name="static")
 
 # we want to create these alongside a session
 chat_history = ChatHistory()
@@ -43,8 +50,7 @@ async def websocket_endpoint(websocket: WebSocket):
     await handle_websocket_chat(websocket, chat_history)
 
 
-@app.get("/clear_chat")
+@app.get("/clear_chat", response_class=HTMLResponse)
 async def clear_chat():
     chat_history.clear_history()
-    return {"message": "Chat history cleared!"}
-
+    return """<div id="content" "hx-swap-oob=beforeend:#content"> chat cleared </div>"""

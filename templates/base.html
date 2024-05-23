@@ -19,13 +19,24 @@
     {% endblock %}
 
 </head>
-<body uk-height-viewport>
+<body class="uk-background-secondary" uk-height-viewport>
 
 
-{% block websocket %}
-{% include 'fragments/chat_websocket.html' %}
+{% block header %}
+{% include 'fragments/header.html' %}
 {% endblock %}
 
+
+<div class="uk-container uk-flex uk-flex-center">
+    {% block websocket %}
+    {% include 'fragments/chat_websocket.html' %}
+    {% endblock %}
+</div>
+
+
+{% block footer %}
+{% include 'fragments/footer.html' %}
+{% endblock %}
 
 </body>
 </html>
