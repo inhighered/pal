@@ -14,176 +14,71 @@ logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 
 env = Environment(loader=FileSystemLoader('templates'))
-chat_template = env.get_template("responses/chat.html")
+history_template = env.get_template("responses/chat_history.html")
+stream_template = env.get_template("responses/chat_stream.html")
+ref_data_template = env.get_template("responses/chat_ref_data.html")
 
-# initial states
-user_messages = "My Message"
-message_history = "Chatbot Response"
 
-@dataclass
-class ChatHistory:
-    history: dict = None
-    last_message_id:int = None
+async def response_generator_helper(user_message:str):
+    """
+        Here we will create the vdb if it does not exist and query it
+        The query will make use of RAG and the vdb.
+        This also helps with response streaming.
+    """
 
-    async def new_message(self, message_type:str, message:str) -> None:
-        if self.history is None:
-            self.history = {}
-        if self.last_message_id is None:
-            self.last_message_id = 0
-        else:
-            self.last_message_id += 1
+    full_text = ""
 
-        self.history.update({self.last_message_id: {"message_type": message_type, "message": message}})
-    
-    async def update_latest_message(self, message_type:str, message:str) -> None:
-        if self.history is None:
-            self.history = {}
-        if self.last_message_id is None:
-            self.last_message_id = 0
-
-        self.history.update({self.last_message_id: {"message_type": message_type, "message": message}})
-
-    async def previous_messages(self) -> dict:
-
-        self.last_message_id
-
-        prev_messages = {}
-        for key, val in self.history.items():
-            if key < self.last_message_id:
-                await prev_messages.update({key: val})
-
-        return prev_messages
-
-    async def clear_history(self) -> None:
-        self.history = None
+    stream_generator = create_and_query_vdb(user_message).response_gen
+    for stream_text in stream_generator:
+        if stream_text is None:
+            continue
+        full_text += stream_text
         
+        stream_html = stream_template.render(current_stream = full_text)
 
-# start a new chat history with the user session
-
-
-# async def chat_streamer(user_message:str, chat_history: ChatHistory):
+        yield stream_html
 
 
-#     # chat_history = ChatHistory()
-#     sys_response = ""
+async def handle_websocket_stream(websocket: WebSocket, user_message: str):
 
-#     await chat_history.new_message("user", user_message)
-#     prev_messages = deepcopy(chat_history.history)
-#     await chat_history.new_message("system", sys_response)
+    async for stream_html in response_generator_helper(user_message):
+        await websocket.send_text(stream_html)
 
-#     for i in range(3):
-
-#         # call llm (return generator)
-#         sys_response = " system message #"
-#         sys_response = sys_response + str(i)
-
-#         await chat_history.update_latest_message("system", sys_response)
-
-#         # Prob need form here
-
-#         await asyncio.sleep(0.1)
-
-#         print(prev_messages)
-#         context = {
-#         "prev_messages": prev_messages,
-#         "current_message": sys_response
-#         }
-
-#         chat = chat_template.render(**context)
-#         #print(chat)
-#         yield chat
+    return stream_html
 
 
+async def return_chat_context(websocket: WebSocket, user_message:str):
+    """
+        Here we just get the context from the vdb and return it to the user
+        We will either want to return the whole context, or just the context metadata.
+        We don't worry about response streaming since the context/metadata doesn't require much processing.
+    """
 
-async def chat_streamer_open_ai(user_message:str, chat_history: ChatHistory):
+    reference_data = create_and_retreive_context_vdb(user_message)
+    reference_data = markdown.markdown(reference_data)
+    print("reference_info--------------\n ", reference_data)
 
-    # chat_history = ChatHistory()
-    sys_response = ""
+    ref_data_chunk = ref_data_template.render(reference_data=reference_data)
+    await websocket.send_text(ref_data_chunk)
 
-    await chat_history.new_message("user", user_message)
-    prev_messages = deepcopy(chat_history.history)
-    await chat_history.new_message("system", sys_response)
+    return ref_data_chunk
 
-    stream = open_ai_stream(user_message)
-    for chunk in stream:
-        if chunk.choices[0].delta.content is None:
-            continue
+    
 
-        # call llm (return generator)
-        # sys_response = " system message #"
-        # sys_response = sys_response + str(i)
-        sys_response = sys_response + chunk.choices[0].delta.content
-
-
-        await chat_history.update_latest_message("system", sys_response)
-
-        await asyncio.sleep(0.1)
-
-        print(prev_messages)
-        context = {
-        "prev_messages": prev_messages,
-        "current_message": sys_response
-        }
-
-        chat = chat_template.render(**context)
-        print(chat)
-
-        yield chat
-
-
-async def chat_streamer_llama_index(user_message:str, chat_history: ChatHistory):
-    sys_response = ""
-
-    await chat_history.new_message("user", user_message)
-    prev_messages = deepcopy(chat_history.history)
-    await chat_history.new_message("system", sys_response)
-
-    stream = create_and_query_vdb(user_message).response_gen
-    reference_info = create_and_retreive_context_vdb(user_message)
-    reference_info = markdown.markdown(reference_info)
-    print("reference_info--------------\n ", reference_info)
-    for chunk in stream:
-        if chunk is None:
-            continue
-
-        # call llm (return generator)
-        # sys_response = " system message #"
-        # sys_response = sys_response + str(i)
-        sys_response = sys_response + chunk
-
-
-        await chat_history.update_latest_message("system", sys_response)
-
-        #await asyncio.sleep(0.1)
-
-        print(prev_messages)
-        context = {
-        "prev_messages": prev_messages,
-        "current_message": sys_response,
-        "reference_info": reference_info
-        }
-
-        chat = chat_template.render(**context)
-        #print(chat)
-
-        #print(chat)
-
-        yield chat
-
-
-async def chat_stream_renderer(websocket: WebSocket, user_messages, chat_history):
-    # async for my_text in chat_streamer_open_ai(user_messages, chat_history):
-    #     await websocket.send_text(my_text)
-    async for my_text in chat_streamer_llama_index(user_messages, chat_history):
-        await websocket.send_text(my_text)
-
-async def handle_websocket_chat(websocket: WebSocket, chat_history: ChatHistory):
+async def handle_websocket_chat(websocket: WebSocket, session_state: dict):
 
     await websocket.accept()
     while True:
-
+         
         user_message = await websocket.receive_json()
-        print(f"got data: {str(user_message)}")
-        user_message = user_message["chat_message"]  
+        #print(f"got data: {str(user_message)}")
+        session_state["messages"].append({"role": "user", "content": user_message["chat_message"]})
+        chat_history = history_template.render(prev_messages=session_state["messages"])
 
-        await chat_stream_renderer(websocket, user_message, chat_history)
+        await websocket.send_text(chat_history)
+        stream_html = await handle_websocket_stream(websocket, user_message["chat_message"])
+
+        session_state["messages"].append({"role": "system", "content": stream_html})
+
+        await return_chat_context(websocket, user_message["chat_message"])
+        

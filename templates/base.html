@@ -22,17 +22,25 @@
 <body class="uk-background-secondary" uk-height-viewport>
 
 
+{% block navbar %}
+{% include 'fragments/navbar.html' %}
+{% endblock %}
+
 {% block header %}
 {% include 'fragments/header.html' %}
 {% endblock %}
 
-
 <div class="uk-container uk-flex uk-flex-center">
     {% block websocket %}
-    {% include 'fragments/chat_websocket.html' %}
+    {% include 'fragments/chat_ws_component.html' %}
     {% endblock %}
 </div>
 
+<div class="uk-container uk-flex uk-flex-center">
+{% block vector_index %}
+{% include 'fragments/clear_index.html' %}
+{% endblock %}
+</div>
 
 {% block footer %}
 {% include 'fragments/footer.html' %}

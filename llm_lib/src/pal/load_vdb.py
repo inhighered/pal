@@ -8,6 +8,8 @@ from llama_index.core import (
     load_index_from_storage,
 )
 
+from pal.llama_index_cust_parser import HeadingMarkdownNodeParser
+
 import os
 import shutil
 
@@ -16,9 +18,15 @@ import shutil
 def create_index(service_context:ServiceContext,
                  data_path:str = 'data',
                  store_name:str = "class_documents_index",
-                 ):
+                 ) -> None:
     
     documents = SimpleDirectoryReader(data_path).load_data()
+
+    # Apply custom markdown parser
+    parser = HeadingMarkdownNodeParser()
+    nodes = parser.get_nodes_from_documents(documents, heading_level=2)
+
+    print(f"generated nodes {len(nodes)}")
 
     response_synthesizer = get_response_synthesizer(
         use_async=True,
@@ -26,7 +34,7 @@ def create_index(service_context:ServiceContext,
 
 
     index = VectorStoreIndex(
-        documents,
+        nodes,
         service_context = service_context,
         response_synthesizer = response_synthesizer,
         show_progress = True,
@@ -36,7 +44,7 @@ def create_index(service_context:ServiceContext,
     index.storage_context.persist(f"vector_db/{store_name}")
 
 
-def load_index(store_name:str = "class_documents_index"):
+def load_index(store_name:str = "class_documents_index") -> VectorStoreIndex:
     
     # load index if exists:
     try:
@@ -52,9 +60,14 @@ def load_index(store_name:str = "class_documents_index"):
 
 
 
-def delete_index(store_name:str = "class_documents_index"):
+def delete_index(store_name:str = "class_documents_index") -> bool:
+    index_deleted = False
 
-    shutil.rmtree(f"vector_db/{store_name}", ignore_errors=True)
+    try:
+        shutil.rmtree(f"vector_db/{store_name}", ignore_errors=True)
+        index_deleted = True
+    except:
+        pass
     
-    return 
+    return index_deleted
 
