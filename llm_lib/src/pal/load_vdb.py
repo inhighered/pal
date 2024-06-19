@@ -7,11 +7,13 @@ from llama_index.core import (
     StorageContext,
     load_index_from_storage,
 )
+from llama_index.readers.file import FlatReader
 
 from pal.llama_index_cust_parser import HeadingMarkdownNodeParser
 
 import os
 import shutil
+from pathlib import Path
 
 
 
@@ -20,7 +22,15 @@ def create_index(service_context:ServiceContext,
                  store_name:str = "class_documents_index",
                  ) -> None:
     
-    documents = SimpleDirectoryReader(data_path).load_data()
+    # documents = []
+    # for document in os.listdir(data_path):
+    #     if document.endswith(".md"):
+    #         documents.extend(FlatReader().load_data(Path(f"data/{document}")))
+    documents = FlatReader().load_data(Path("data/course.md"))
+
+    if len(documents) == 0:
+        raise ValueError("No documents found in data path")
+    #documents = SimpleDirectoryReader(data_path).load_data()
 
     # Apply custom markdown parser
     parser = HeadingMarkdownNodeParser()
