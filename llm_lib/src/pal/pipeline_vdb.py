@@ -10,13 +10,16 @@ from llama_index.core import (
 )
 
 import os
+from typing import List
 
 
 
 
 
-
-def create_and_retreive_context_vdb(user_query:str, model:str = "gpt-3.5-turbo"):
+def create_and_retreive_context_vdb(user_query:str, 
+                                    model:str = "gpt-3.5-turbo",
+                                    include_metadata:bool=True,
+                                    include_content:bool=False) -> str:
 
     llm = OpenAI(
         temperature=0.2,
@@ -43,7 +46,10 @@ def create_and_retreive_context_vdb(user_query:str, model:str = "gpt-3.5-turbo")
             print("index could not be created")
             raise ValueError("Index could not be created")
 
-    content = retrieve(user_query, index)
+    content = retrieve(user_query, 
+                       index, 
+                       include_metadata=include_metadata,
+                       include_content=include_content)
 
     return content
 

@@ -1,11 +1,20 @@
     
 <div id="stream" "hx-swap-oob=beforeend:#stream">
 
-    <div class="uk-flex uk-flex-row uk-flex-right uk-flex-middle">
-        <div class="uk-width-1-4"> </div>
-        <div class="uk-align-right uk-width-3-4">{{current_stream}} <br/></div>
-        <div style="padding:10px"><span uk-icon="icon: bolt"></span></div>
-        <br/>
-    </div>
+    {% if current_stream is not defined or current_stream == "" or current_stream == None %}
+        <div class="uk-flex uk-flex-row uk-flex-right uk-flex-middle">
+            <div class="uk-width-3-4"> </div>
+            <div class="uk-align-right uk-width-1-4"> <div uk-spinner></div> </div>
+            <div style="padding:10px"><span uk-icon="icon: bolt"></span></div>
+            <br/>
+        </div>
+    {% else %}
+        <div class="uk-flex uk-flex-row uk-flex-right uk-flex-middle">
+            <div class="uk-width-1-4"></div>
+            <div class="uk-align-right uk-width-3-4">{{current_stream}} <br/></div>
+            <div style="padding:10px"><span uk-icon="icon: bolt"></span></div>
+            <br/>
+        </div>
+    {% endif %}
 
 </div>

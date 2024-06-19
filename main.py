@@ -60,8 +60,15 @@ async def websocket_endpoint(websocket: WebSocket):
 
 @app.get("/clear_chat", response_class=HTMLResponse)
 async def clear_chat():
-    session_state = {}
-    return """<div id="content" "hx-swap-oob=beforeend:#content"> chat cleared </div>"""
+    session_state['messages'] = []
+
+    content_chunk = """<div id="content">
+        <div id="history"></div>
+        <div id="stream"></div>
+        <div id="reference_data"></div>
+        </div>"""
+    
+    return content_chunk
 
 
 @app.websocket("/ws_for_testing")
