@@ -16,7 +16,8 @@ Query: {query_str}
 Answer: 
 """
 
-def _format_metadata(metadata:dict) -> str:
+
+def _format_metadata(metadata: dict) -> str:
     metadata_str = ""
     for key, value in metadata.items():
         if "date" not in key and "extension" not in key:
@@ -24,42 +25,43 @@ def _format_metadata(metadata:dict) -> str:
     return metadata_str
 
 
-def query(prompt: str,
-          index: VectorStoreIndex,
-          #prompt_template:PromptTemplate=PROMPT_TEMPALTE
-          ) -> StreamingResponse:
+def query(
+    prompt: str,
+    index: VectorStoreIndex,
+    # prompt_template:PromptTemplate=PROMPT_TEMPALTE
+) -> StreamingResponse:
 
-    # -- re-visit this later -- 
+    # -- re-visit this later --
     # qa_prompt = PromptTemplate(prompt_template)
 
     # get query engine (base query engine)
     doc_query_engine = index.as_query_engine(
-        response_mode = "refine",
-        use_async = True,
+        response_mode="refine",
+        use_async=True,
         streaming=True,
     )
 
-    #prompts_dict = doc_query_engine.get_prompts()
+    # prompts_dict = doc_query_engine.get_prompts()
 
     stream_response = doc_query_engine.query(prompt)
 
     # Try to get docs
-    #response_metadata = stream_response.metadata
+    # response_metadata = stream_response.metadata
 
     return stream_response
 
+
 def retrieve(
-        prompt: str,
-        index: VectorStoreIndex,
-        include_metadata: bool = True,
-        include_content:bool = True,
-        #prompt_template:PromptTemplate=PROMPT_TEMPALTE
-        ) -> str:
-    
+    prompt: str,
+    index: VectorStoreIndex,
+    include_metadata: bool = True,
+    include_content: bool = True,
+    # prompt_template:PromptTemplate=PROMPT_TEMPALTE
+) -> str:
+
     if not include_metadata and not include_content:
         # add logging later
         print("Warning - no context will be returned")
-
 
     retriever = index.as_retriever(choice_batch_size=5)
 
@@ -86,4 +88,3 @@ def retrieve(
         content_str = "\n".join(ref_content)
 
     return content_str
-
