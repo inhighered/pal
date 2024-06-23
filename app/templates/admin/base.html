@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <title>{{ title }}</title>
     <!-- UIkit CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.6.21/dist/css/uikit.min.css" />
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.6.21/dist/css/uikit.min.css" /> -->
+    <link rel="stylesheet" type="text/css" href="/static/css/uikit_theme.min.css">
 
     <!-- UIkit JS -->
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.21/dist/js/uikit.min.js"></script>
@@ -43,11 +44,25 @@
 {% include 'admin/fragments/list_index.html' %}
 {% endblock %}
 
-<div class="uk-vertical-align uk-text-center uk-height-1-1 uk-container uk-flex uk-width-1-2 uk-flex-center">
+<div class="uk-vertical-align uk-text-center uk-height-1-1 uk-container uk-flex uk-width-1-2 uk-flex-center uk-light">
     {% block update_index %}
-    {% include 'admin/fragments/update_index.html' %}
+    {% include 'admin/fragments/upload_file.html' %}
     {% endblock %}    
 </div>
+
+{% block index_status %}
+{% include 'admin/fragments/index_status.html' %}
+{% endblock %}
+
+{% block rebuild_index %}
+{% include 'admin/fragments/rebuild_index.html' %}
+{% endblock %}
+
+
+{% block clear_files %}
+{% include 'admin/fragments/clear_files.html' %}
+{% endblock %}
+
 
 {% block clear_index %}
 {% include 'admin/fragments/clear_index.html' %}

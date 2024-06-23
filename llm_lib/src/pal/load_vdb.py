@@ -6,6 +6,7 @@ from llama_index.core import (
     StorageContext,
     load_index_from_storage,
 )
+from llama_index.llms.openai import OpenAI
 from llama_index.readers.file import FlatReader
 
 from pal.llama_index_cust_parser import HeadingMarkdownNodeParser
@@ -94,3 +95,40 @@ def delete_index(store_name: str = "class_documents_index") -> bool:
 
 
 
+def get_index_exists_status():
+    try:
+        index = load_index()
+        return True
+    except:
+        return False
+
+
+def create_index_if_not_exists(model:str = "gpt-3.5-turbo",
+                               llm:OpenAI = None,
+                               service_context: ServiceContext = None):
+    if not llm:
+        llm = OpenAI(
+            temperature=0.2,
+            openai_api_key=os.environ['OPENAI_API_KEY'],
+            model = model
+        )
+
+    if not service_context:
+        service_context = ServiceContext.from_defaults(
+            llm = llm
+        )
+
+    try:
+        index = load_index()
+        print("loaded existing index")
+    except:
+        try:
+            print("attempting to create index")
+            create_index(service_context)
+            index = load_index()
+            print("index created")
+        except:
+            print("index could not be created")
+            raise ValueError("Index could not be created")
+    
+    return index

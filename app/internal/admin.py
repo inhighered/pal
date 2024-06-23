@@ -1,24 +1,30 @@
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, UploadFile, Form
 from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi import Request
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
+from typing_extensions import Annotated
 
 from typing import Optional
 
-from app.utils.auth import AuthCookie, get_auth_cookie
 from app.utils.sessions import (
     get_session_id, 
     create_session, 
     create_user, 
     get_session_id, 
     get_user_from_session_id,
-    get_user_admin
+    get_user_admin,
 )
 
 from app.config import TEMPLATES, TEMPLATES_SIMPLE_ENV
 
-from pal import delete_index, get_available_files
+from pal import (
+    delete_index, 
+    get_available_files, 
+    clear_files, 
+    get_index_exists_status,
+    create_index_if_not_exists
+)
 
 
 router = APIRouter(tags=["admin"])
@@ -71,9 +77,22 @@ async def serve_admin_home(request: Request):
     return TEMPLATES.TemplateResponse("admin/base.html", context)
 
 
-@router.post("/upload")
-async def upload_file():
-    return {"message": "Upload File"}
+@router.post("/admin/upload",
+             response_class=HTMLResponse)
+async def upload_file(file: UploadFile):
+
+    print("got file: ",   file.filename)
+    save_path = f"data/{file.filename}"
+    with open(save_path, "wb+") as file_object:
+        file_object.write(file.file.read())
+
+    # save_file_local()
+
+    content_chunk = """<div id="upload_status">
+        <h2> uploaded file </h2>
+        </div>"""
+
+    return content_chunk
 
 
 @router.get("/file/{file_id}")
@@ -92,7 +111,28 @@ async def get_files(request:Request):
     return index_list
 
 
-@router.get("/clear_index", response_class=HTMLResponse)
+@router.get("/admin/clear_index", response_class=HTMLResponse)
 async def clear_index():
     delete_status = delete_index()
     return """<div id="index_content"> Index Cleared </div></br>"""
+
+
+@router.get("/admin/files/clear", response_class=HTMLResponse)
+async def delete_files():
+    clear_status = clear_files()
+    return """<div id="source_files"> Uploaded Files Cleared </div></br>"""
+
+
+@router.get("/admin/rebuild_index", response_class=HTMLResponse)
+async def rebuild_index():
+
+    _ = create_index_if_not_exists()
+    return """<div id="index_rebuild"> Index Rebuilt or Index Already Exists </div></br>"""
+
+
+@router.get("/admin/index_status", response_class=HTMLResponse)
+async def index_status():
+    status = get_index_exists_status()
+    return f"""<div id="index_status"> Index Exists Status: {status} </div></br>"""
+
+

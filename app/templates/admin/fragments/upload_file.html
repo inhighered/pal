@@ -1,0 +1,28 @@
+
+<div class="uk-container uk-margin-top">
+    <h2 class="uk-heading-divider">Upload a File</h2>
+
+    <form id='form' hx-encoding='multipart/form-data' hx-post='/admin/upload' hx-target="#upload_status" hx-swap="innerHTML">
+        <div class ="uk-margin">
+            <div uk-form-custom="target: true">
+                <input type='file' name='file'>
+                <input class="uk-input uk-form-width-medium" type="text" placeholder="Select file" disabled>
+            </div>
+        </div>
+        <button type="submit" class="uk-button uk-button-secondary">
+            Upload
+        </button>
+        <progress id='progress' value='0' max='100'></progress>
+    </form>
+    <div id="upload_status" class="uk-margin-top"></div>
+
+
+</div>
+
+
+
+<script>
+    htmx.on('#form', 'htmx:xhr:progress', function(evt) {
+      htmx.find('#progress').setAttribute('value', evt.detail.loaded/evt.detail.total * 100)
+    });
+</script>
