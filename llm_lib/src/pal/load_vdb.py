@@ -15,17 +15,30 @@ import shutil
 from pathlib import Path
 
 
+def get_available_files(data_path: str = "data") -> list:
+    documents = os.listdir(data_path)
+    return documents
+
+def clear_files(data_path: str = "data") -> None:
+    for document in os.listdir(data_path):
+        os.remove(f"data/{document}")
+
+def add_test_files(data_path: str = "data") -> None:
+    for document in os.listdir(data_path):
+        if document.endswith(".md"):
+            shutil.copy(f"data/{document}", f"llm_lib/data/{document}")
+
 def create_index(
     service_context: ServiceContext,
     data_path: str = "data",
     store_name: str = "class_documents_index",
 ) -> None:
 
-    # documents = []
-    # for document in os.listdir(data_path):
-    #     if document.endswith(".md"):
-    #         documents.extend(FlatReader().load_data(Path(f"data/{document}")))
-    documents = FlatReader().load_data(Path("data/course.md"))
+    documents = []
+    for document in os.listdir(data_path):
+        if document.endswith(".md"):
+            documents.extend(FlatReader().load_data(Path(f"data/{document}")))
+    # documents = FlatReader().load_data(Path("data/course.md"))
 
     if len(documents) == 0:
         raise ValueError("No documents found in data path")
@@ -78,3 +91,6 @@ def delete_index(store_name: str = "class_documents_index") -> bool:
         pass
 
     return index_deleted
+
+
+

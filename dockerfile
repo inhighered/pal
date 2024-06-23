@@ -17,4 +17,4 @@ ENTRYPOINT ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
 # docker build . -t htmx_chatbot
 # docker run -p 8000:8000 htmx_chatbot
 # ~220 MB image size
-# uvcorn app.main:app --reload
+# uvicorn app.main:app --reload

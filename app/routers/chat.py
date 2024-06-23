@@ -1,15 +1,24 @@
-from fastapi import WebSocket, APIRouter
+from fastapi import WebSocket, APIRouter, FastAPI, Request
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import HTMLResponse
-from fastapi import Request
-from fastapi.templating import Jinja2Templates
-from fastapi.staticfiles import StaticFiles
 
-from .chat_utils import handle_websocket_chat
+from app.routers.chat_utils import handle_websocket_chat
+from app.utils.sessions import get_session_id
+
+#router = APIRouter(prefix="/chat", tags=["chat"])
+router = FastAPI()
+
+# Your CORS
+router.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
-router = APIRouter(prefix="/chat", tags=["chat"])
-
-
+# TODO - Make this dependant on state
 session_state = {}
 
 # Initialize chat history
@@ -24,7 +33,11 @@ async def websocket_endpoint(websocket: WebSocket):
 
 
 @router.get("/clear_chat", response_class=HTMLResponse)
-async def clear_chat():
+async def clear_chat(request: Request):
+
+    
+    session_id = get_session_id(request)
+    print("Clearing chat history for session: ", session_id)
     session_state["messages"] = []
 
     content_chunk = """<div id="content">
