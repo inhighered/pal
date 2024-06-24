@@ -3,6 +3,7 @@ from fastapi.responses import HTMLResponse
 from fastapi import Request
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
+from fastapi.middleware.cors import CORSMiddleware
 
 import uuid
 from datetime import timedelta
@@ -19,10 +20,20 @@ logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 
 
+
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Update with your frontend's origin
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 app.include_router(admin.router)
 app.include_router(login.router)
-app.mount("/chat", chat.router)
+app.include_router(chat.router)
 
 # --------------------------------------------------------------------------------
 # Static Files
@@ -50,4 +61,5 @@ async def root(request: Request):
     response.set_cookie(key="session_id", value=str(session_id), expires=timedelta(days=1))
                             
     return response
+
 

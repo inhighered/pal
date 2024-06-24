@@ -8,3 +8,9 @@ data/**
 **/*.ipynb
 __pycache__/**
 *.env
+**/*.tfstate
+**/*.tfstate.backup
+**/*.tfstate.backup.*
+**.terraform/**
+**/.terraform*
+**/push_to_ecr.sh

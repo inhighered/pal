@@ -1,6 +1,6 @@
 
 
-from pal.query_vdb import query, retrieve
+from pal.query_vdb import query, retrieve, get_query_engine
 from pal.load_vdb import create_index, load_index, create_index_if_not_exists
 
 from llama_index.llms.openai import OpenAI
@@ -63,9 +63,30 @@ def create_and_query_vdb(user_query:str, model:str = "gpt-3.5-turbo"):
         llm=llm, 
         service_context=service_context
         )
+    
+    query_engine = get_query_engine(index)
 
-    stream_response = query(user_query, index)
+    return query_engine, user_query
+    #stream_response = query(user_query, index)
 
-    return stream_response
+    #return stream_response
 
 
+def create_index_default_context(model:str = "gpt-3.5-turbo"):
+    llm = OpenAI(
+        temperature=0.2,
+        openai_api_key=os.environ['OPENAI_API_KEY'],
+        model = model
+    )
+
+    service_context = ServiceContext.from_defaults(
+        llm = llm
+    )
+
+    index = create_index_if_not_exists(
+        model=model,
+        llm=llm, 
+        service_context=service_context
+        )
+    
+    return index
