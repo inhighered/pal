@@ -36,9 +36,6 @@ def mock_stream() -> Generator:
     response = "Hello there! How can I assist you today?" * int(100) # 10,000 characters
 
     for word in response.split():
-        # this will bind the generator
-        # time.sleep(0.01)
-        # asyncio.sleep(0.1) <- would need to be in async
         yield word + " "
 
 async def async_mock_stream() -> AsyncGenerator:
@@ -82,7 +79,8 @@ async def async_rag_response_mock_generator(user_message:str):
     return stream_resp
 
 
-
+from openai import OpenAI
+client = OpenAI()
 
 def mock_open_ai_response_generator(user_message:str)-> Generator:
 

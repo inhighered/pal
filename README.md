@@ -2,13 +2,19 @@
 
 An app focused on RAG for Q+A and sourcing from markdown files.
 
-# Prod
-- llm python package
+## Tools
+- HTMX + UI kit
+- Python Server
+- Python RAG
 - Docker
-- AWS
+- AWS Lightsail
 
-
-# Dev
+## Components
+- Rag lib for websocket streaming
+- FastAPI backend
+- HTMX + UIkit frontend
+- User Chat Page
+- Admin RAG Page
 
 ### Run the app
 from root:
