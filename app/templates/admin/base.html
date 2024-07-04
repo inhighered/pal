@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <!-- UIkit CSS -->
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.6.21/dist/css/uikit.min.css" /> -->
+    <link rel="stylesheet" type="text/css" href="/static/css/uikit_theme.min.css">
+
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.21/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.21/dist/js/uikit-icons.min.js"></script>
+
+    <!-- Htmx -->
+    <script src="https://unpkg.com/htmx.org@1.9.12"></script>
+    <script src="https://unpkg.com/htmx.org@1.9.12/dist/ext/ws.js"></script>
+
+
+    {% block style %}
+    {% endblock %}
+
+</head>
+<body class="uk-background-secondary" uk-height-viewport>
+
+
+{% block navbar %}
+{% include 'generic/navbar.html' %}
+{% endblock %}
+
+    
+<div class="uk-vertical-align uk-text-center uk-height-1-1 uk-container uk-flex uk-flex-center">
+    <div class="uk-vertical-align-middle" style="width: 250px;">
+    
+    <img id="pal-logo" width="75" height="75" src="/static/img/pal_snipped.png" />    
+    <div class="login-form-top uk-light">
+        <h3 class="login-form-top-subtitle">Congrats! You made it to the admin page!</h3>
+    </div>
+
+    </div>
+</div>
+
+
+{% block list_index %}
+{% include 'admin/fragments/list_index.html' %}
+{% endblock %}
+
+<div class="uk-vertical-align uk-text-center uk-height-1-1 uk-container uk-flex uk-width-1-2 uk-flex-center uk-light">
+    {% block update_index %}
+    {% include 'admin/fragments/upload_file.html' %}
+    {% endblock %}    
+</div>
+
+{% block index_status %}
+{% include 'admin/fragments/index_status.html' %}
+{% endblock %}
+
+{% block rebuild_index %}
+{% include 'admin/fragments/rebuild_index.html' %}
+{% endblock %}
+
+
+{% block clear_files %}
+{% include 'admin/fragments/clear_files.html' %}
+{% endblock %}
+
+
+{% block clear_index %}
+{% include 'admin/fragments/clear_index.html' %}
+{% endblock %}
+
+</body>
+</html>

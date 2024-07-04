@@ -1,7 +1,7 @@
 
 
-from pal.query_vdb import query, retrieve
-from pal.load_vdb import create_index, load_index 
+from pal.query_vdb import query, retrieve, get_query_engine
+from pal.load_vdb import create_index, load_index, create_index_if_not_exists
 
 from llama_index.llms.openai import OpenAI
 
@@ -31,20 +31,11 @@ def create_and_retreive_context_vdb(user_query:str,
         llm = llm
     )
 
-    # create_index(service_context)
-    
-    try:
-        index = load_index()
-        print("loaded existing index")
-    except:
-        try:
-            print("attempting to create index")
-            create_index(service_context)
-            index = load_index()
-            print("index created")
-        except:
-            print("index could not be created")
-            raise ValueError("Index could not be created")
+    index = create_index_if_not_exists(
+        model=model,
+        llm=llm, 
+        service_context=service_context
+        )
 
     content = retrieve(user_query, 
                        index, 
@@ -67,21 +58,35 @@ def create_and_query_vdb(user_query:str, model:str = "gpt-3.5-turbo"):
         llm = llm
     )
 
-    # create_index(service_context)
+    index = create_index_if_not_exists(
+        model=model,
+        llm=llm, 
+        service_context=service_context
+        )
     
-    try:
-        index = load_index()
-        print("loaded existing index")
-    except:
-        try:
-            print("attempting to create index")
-            create_index(service_context)
-            index = load_index()
-            print("index created")
-        except:
-            print("index could not be created")
-            raise ValueError("Index could not be created")
+    query_engine = get_query_engine(index)
 
-    stream_response = query(user_query, index)
+    return query_engine, user_query
+    #stream_response = query(user_query, index)
 
-    return stream_response
+    #return stream_response
+
+
+def create_index_default_context(model:str = "gpt-3.5-turbo"):
+    llm = OpenAI(
+        temperature=0.2,
+        openai_api_key=os.environ['OPENAI_API_KEY'],
+        model = model
+    )
+
+    service_context = ServiceContext.from_defaults(
+        llm = llm
+    )
+
+    index = create_index_if_not_exists(
+        model=model,
+        llm=llm, 
+        service_context=service_context
+        )
+    
+    return index

@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <title>{{ title }}</title>
     <!-- UIkit CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.6.21/dist/css/uikit.min.css" />
-
+    <!-- UIkit CSS -->
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.6.21/dist/css/uikit.min.css" /> -->
+    <link rel="stylesheet" type="text/css" href="/static/css/uikit_theme.min.css">
     <!-- UIkit JS -->
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.21/dist/js/uikit.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.21/dist/js/uikit-icons.min.js"></script>
@@ -23,27 +24,27 @@
 
 
 {% block navbar %}
-{% include 'fragments/navbar.html' %}
+{% include 'generic/navbar.html' %}
 {% endblock %}
 
 {% block header %}
-{% include 'fragments/header.html' %}
+{% include 'generic/header.html' %}
 {% endblock %}
 
 <div class="uk-container uk-flex uk-flex-center">
     {% block websocket %}
-    {% include 'fragments/chat_ws_component.html' %}
+    {% include 'chat/fragments/chat_ws_component.html'%}
     {% endblock %}
 </div>
 
 <div class="uk-container uk-flex uk-flex-center">
 {% block vector_index %}
-{% include 'fragments/clear_index.html' %}
+{% include 'chat/fragments/clear_index.html' %}
 {% endblock %}
 </div>
 
 {% block footer %}
-{% include 'fragments/footer.html' %}
+{% include 'generic/footer.html' %}
 {% endblock %}
 
 </body>
