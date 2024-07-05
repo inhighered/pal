@@ -4,12 +4,7 @@
     <br/>
     <div class="uk-flex uk-flex-column uk-flex-middle uk-width-1-1 uk-light">
 
-
-        <div>
-            <button class="uk-button uk-button-default" hx-get="/admin/files" hx-target="#index_content_list"> Get Files</button>
-        </div>
-
-        <div id="index_content_list"></div>
+        <div id="index_content_list" hx-get="/admin/files" hx-target="#index_content_list" hx-trigger="load, fileUpdate from:body, fileClear from:body"></div>
     </div>
 
     <br/>

@@ -1,11 +1,11 @@
-from fastapi import APIRouter, Depends, UploadFile, Form
+from fastapi import APIRouter, Depends, UploadFile, Form, Response, File
 from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi import Request
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
 from typing_extensions import Annotated
 
-from typing import Optional
+from typing import Optional, List
 
 from app.utils.sessions import (
     get_session_id, 
@@ -79,17 +79,23 @@ async def serve_admin_home(request: Request):
 
 @router.post("/admin/upload",
              response_class=HTMLResponse)
-async def upload_file(file: UploadFile):
+async def upload_file(response: Response,
+                      file: UploadFile = File(...), 
+                      ):
+
+    # print("got files: ", files)
+
+    contents = await file.read()
 
     print("got file: ",   file.filename)
     save_path = f"data/{file.filename}"
     with open(save_path, "wb+") as file_object:
-        file_object.write(file.file.read())
+        file_object.write(contents)
 
+    response.headers['HX-Trigger'] = "fileUpdate"
     # save_file_local()
 
     content_chunk = """<div id="upload_status">
-        <h2> uploaded file </h2>
         </div>"""
 
     return content_chunk
@@ -112,15 +118,16 @@ async def get_files(request:Request):
 
 
 @router.get("/admin/clear_index", response_class=HTMLResponse)
-async def clear_index():
+async def clear_index(response: Response):
     delete_status = delete_index()
     return """<div id="index_content"> Index Cleared </div></br>"""
 
 
 @router.get("/admin/files/clear", response_class=HTMLResponse)
-async def delete_files():
+async def delete_files(response: Response):
     clear_status = clear_files()
-    return """<div id="source_files"> Uploaded Files Cleared </div></br>"""
+    response.headers['HX-Trigger'] = "fileClear"
+    return """<div></div>"""
 
 
 @router.get("/admin/rebuild_index", response_class=HTMLResponse)
