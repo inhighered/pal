@@ -32,8 +32,12 @@
     <div class="uk-vertical-align-middle" style="width: 250px;">
     
     <img id="pal-logo" width="75" height="75" src="/static/img/pal_snipped.png" />    
+    <br/>
+    <br/>
+    <br/>
     <div class="login-form-top uk-light">
-        <h3 class="login-form-top-subtitle">Congrats! You made it to the admin page!</h3>
+
+        <h2 class="login-form-top-subtitle"> File Management </h2>
     </div>
 
     </div>
@@ -50,6 +54,14 @@
     {% endblock %}    
 </div>
 
+{% block clear_files %}
+{% include 'admin/fragments/clear_files.html' %}
+{% endblock %}
+
+{% block index_management %}
+{% include 'admin/fragments/index_management.html' %}
+{% endblock %}
+
 {% block index_status %}
 {% include 'admin/fragments/index_status.html' %}
 {% endblock %}
@@ -59,13 +71,12 @@
 {% endblock %}
 
 
-{% block clear_files %}
-{% include 'admin/fragments/clear_files.html' %}
-{% endblock %}
-
-
 {% block clear_index %}
 {% include 'admin/fragments/clear_index.html' %}
+{% endblock %}
+
+{% block footer %}
+{% include 'generic/footer.html' %}
 {% endblock %}
 
 </body>

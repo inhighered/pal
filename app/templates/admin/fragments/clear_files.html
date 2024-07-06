@@ -5,10 +5,25 @@
         <div id="source_files"></div>
 
         <div>
-            <button class="uk-button uk-button-default" hx-get="/admin/files/clear" hx-target="#source_files"> 
+            <button 
+            class="uk-button uk-button-default" 
+            hx-get="/admin/files/clear" 
+            hx-target="#source_files"
+            onclick="hideProgress()"> 
                 Clear Files
             </button>
         </div>
     </div>
 
 </div>
+
+
+<script>
+
+    function hideProgress() {
+        // don't care about progress bar if we are clearing files
+        var progress = document.getElementById('progress');
+        progress.setAttribute('hidden', '');
+    }
+
+</script>

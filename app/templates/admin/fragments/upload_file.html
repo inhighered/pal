@@ -1,27 +1,92 @@
 
 <div class="uk-container uk-margin-top">
-    <h2 class="uk-heading-divider">Upload a File</h2>
+    <h2 class="uk-heading-divider">Upload Files</h2>
 
-    <form id='form' hx-encoding='multipart/form-data' hx-post='/admin/upload' hx-target="#upload_status" hx-swap="innerHTML">
-        <div class ="uk-margin">
+    <form id='form' 
+    hx-encoding='multipart/form-data'
+    hx-post='/admin/upload'
+    hx-target="#upload_status" 
+    hx-swap="innerHTML"
+    class="uk-form-stacked">
+
+        <div class ="uk-margin uk-text-center">
             <div uk-form-custom="target: true">
-                <input type='file' name='file'>
-                <input class="uk-input uk-form-width-medium" type="text" placeholder="Select file" disabled>
+                <input 
+                type='file' 
+                id='fileInput'
+                name='file' 
+                onchange="updateFileList()"
+                multiple>
+                <button class="uk-button uk-button-default" 
+                type="button" 
+                tabindex="-1">
+                Select Files 
+                </button>
+                <!-- <input class="uk-input uk-form-width-medium" type="text" placeholder="Select file" disabled> -->
             </div>
         </div>
-        <button type="submit" class="uk-button uk-button-secondary">
-            Upload
-        </button>
-        <progress id='progress' value='0' max='100'></progress>
+
+        <div class="uk-margin uk-text-center uk-flex uk-flex-column uk-flex-center">
+            <button 
+            type="submit" 
+            class="uk-button uk-button-default"
+            onclick="showProgress()">
+                Upload
+            </button>
+            <div style="padding:20px">
+                <progress id='progress'  value='0' max='100' hidden></progress>
+            </div>
+        </div>
     </form>
+
+    <div class = "uk-margin uk-text-center">
+        <ul id="fileList" class = "uk-list uk-list-divider"></ul>
+    </div>
+
     <div id="upload_status" class="uk-margin-top"></div>
 
 </div>
 
 
 
+
 <script>
+    function showProgress() {
+        var progress = document.getElementById('progress');
+        progress.removeAttribute('hidden');
+
+        // we also want to just clear the file list
+        var ul = document.getElementById('fileList');
+        ul.innerHTML=''; //clear existing list
+    }
+
+    function hideProgress() {
+        var progress = document.getElementById('progress');
+        progress.setAttribute('hidden', '');
+    }
+
+    function updateFileList() {
+
+        var input = document.getElementById('fileInput');
+        var ul = document.getElementById('fileList');
+        ul.innerHTML=''; //clear existing list
+
+        //also hide old progress bar
+        var progress = document.getElementById('progress');
+        progress.setAttribute('hidden', '');
+
+        for (var i=0; i<input.files.length; i++) {
+            var li = document.createElement('li');
+            li.innerHTML = input.files[i].name;
+            ul.appendChild(li);
+        }
+    }
+
+
     htmx.on('#form', 'htmx:xhr:progress', function(evt) {
-      htmx.find('#progress').setAttribute('value', evt.detail.loaded/evt.detail.total * 100)
+      htmx.find('#progress').setAttribute(
+        'value', evt.detail.loaded/evt.detail.total * 100)
     });
+
+
 </script>
