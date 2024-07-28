@@ -14,6 +14,7 @@ from app.utils.sessions import (
     get_session_id, 
     get_user_from_session_id,
     get_user_admin,
+    init_state,
 )
 
 from app.config import TEMPLATES, TEMPLATES_SIMPLE_ENV
@@ -45,11 +46,12 @@ async def read_root(
     session_id = get_session_id(request)
 
     if not session_id:
-        session_id = create_session(request)
-        user = create_user(request)
+        # session_id = create_session(request)
+        # user = create_user(request)
+        session_id = init_state(request)
         path = '/admin/login'
         print("created session", session_id)
-        print("created user", user)
+        # print("created user", user)
 
 
     else:

@@ -11,7 +11,7 @@ from datetime import timedelta
 from .internal import admin, login
 from .routers import chat
 from app.config import TEMPLATES
-from app.utils.sessions import  create_session, create_user
+from app.utils.sessions import  create_session, create_user, init_state
 
 import logging
 
@@ -49,11 +49,12 @@ async def root(request: Request):
     # response.set_cookie(key="session_key", value=session_key, expires=timedelta(days=1))
 
     # session with users:
-    session_id = create_session(request)
-    user_status = create_user(request)
+    # session_id = create_session(request)
+    # user_status = create_user(request)
+    session_id = init_state(request)
 
     print("session id: ", session_id)
-    print("user status: ", user_status)
+    # print("user status: ", user_status)
 
     context = {"request": request, "title": "Streaming Chat"}
     response = TEMPLATES.TemplateResponse("base.html", context)

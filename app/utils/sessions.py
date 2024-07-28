@@ -4,10 +4,80 @@ from fastapi.exceptions import HTTPException
 from app.config import app_session, users
 import random
 
+from app.utils.database.models import User, get_user_from_ip
+
+from logging import getLogger
+_logger = getLogger(__name__)
 
 # -----------------------------------------------
 # Implement some basic session handling + auth
 # -----------------------------------------------
+
+
+def init_session(request: Request) -> dict:
+    # we'll see if the session already exists:
+    # for now in dict or in db
+    session_id = None
+    user_ip = request.client.host
+
+    # in session dict:
+    for key in app_session.keys():
+        if app_session[key]["user_ip"] == user_ip:
+            _logger.info(f"session for {user_ip} already exists")
+            session_id = app_session[key]["session_id"]
+
+            # also get user ip from db state
+            user = get_user_from_ip(user_ip)
+
+    if session_id is None:
+        session_id = int(user_ip.replace(".","")) + random.randint(0, 10000000)
+        # request.client.host == users['user_ip']
+        # like -- {"1293944": "10.01.20"}
+        # Need to store if session is admin too
+        # like { "1111111" : {"session_id": 11111111, "user_ip": "10.01.20", "is_admin": False}}
+        session_info = {
+            "session_id": session_id,
+            "user_ip": user_ip,
+            "is_admin": False
+        }
+        app_session[session_id] = session_info
+
+        # create user in db
+        user = User(str(session_id), user_ip)
+        _logger.info(f"writing user {user}")
+        user.insert()
+
+    return session_id
+    
+def init_user(request: Request) -> dict:
+    # in the database users/sessions will basically be the same
+
+    user_ip = users.get(request.client.host)
+    if user_ip:
+        print("user already exists")
+        return {"message": "User already exists"}
+
+    else:
+        new_user_id = len(users) + 1
+        new_user = {
+            "user_id": new_user_id,
+            "user_ip": user_ip
+        }
+
+        users[user_ip] = new_user
+
+        return {"message": "User created successfully"}
+
+# Create session and create user should basically be the same thing
+# for now if the user ip exists, we'll just use that as the session
+# handle time/refreshes later
+def init_state(request: Request) -> int:
+    session_id = init_session(request)
+    _ = init_user(request)
+
+    return session_id
+
+
 
 
 

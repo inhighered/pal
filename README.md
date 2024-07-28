@@ -19,7 +19,7 @@ An app focused on RAG for Q+A and sourcing from markdown files.
 ### Run the app
 from root:
 ```bash
-uvicorn app.main:app --host 0.0.0.0 --port 8000
+uvicorn app.main:app --host 0.0.0.0 --port 8001
 ```
 
 ### Testing - pytest
