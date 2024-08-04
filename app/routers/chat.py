@@ -2,8 +2,9 @@ from fastapi import WebSocket, APIRouter, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import HTMLResponse
 
-from app.routers.chat_utils import handle_websocket_chat, simple_ws_test, mock_handle_websocket_chat
-from app.utils.sessions import get_session_id
+from app.routers.chat_utils import handle_websocket_chat, simple_ws_test
+from app.routers.mock_chat_utils import mock_handle_websocket_chat
+from app.utils.sessions import get_session_id, get_session_id_ws
 
 #router = APIRouter(prefix="/chat", tags=["chat"])
 router = APIRouter()
@@ -20,6 +21,7 @@ if "messages" not in session_state:
 @router.websocket("/ws")
 async def websocket_endpoint(websocket: WebSocket):
 
+
     return await handle_websocket_chat(websocket, session_state)
     # works
     # return await simple_ws_test(websocket)
@@ -30,7 +32,7 @@ async def websocket_endpoint(websocket: WebSocket):
 
 @router.get("/chat/clear_chat", response_class=HTMLResponse)
 async def clear_chat(request: Request):
-
+    # I guess this should start a new chat group?
 
     session_id = get_session_id(request)
     print("Clearing chat history for session: ", session_id)
@@ -45,7 +47,12 @@ async def clear_chat(request: Request):
     return content_chunk
 
 
+
+
 @router.websocket("/ws_for_testing")
 async def websocket_endpoint(websocket: WebSocket):
+    # this should return users ip:
+    # websocket.client.host
 
     return await handle_websocket_chat(websocket)
+    # return await mock_handle_websocket_chat(websocket, session_state)
