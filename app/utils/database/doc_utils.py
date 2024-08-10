@@ -17,6 +17,8 @@ from app.utils.database.db_utils import (
 
 from psycopg import Connection
 
+from logging import getLogger
+_logger = getLogger(__name__)
 
 # need either files path, or vector db connection
 
@@ -61,14 +63,17 @@ def get_latest_doc_group(conn:Connection) -> int:
         doc_group_id
     FROM 
         app.docs
-    WHERE 
+    where doc_active = 1
     ORDER BY doc_group_id DESC
     LIMIT 1"""
     cur = conn.cursor()
     cur.execute(sql)
     results_tuple = cur.fetchall()
-    if results_tuple != [[]]:
-        doc_group_id = results_tuple[0]
+
+    _logger.debug(f"Latest doc results: \n {results_tuple}")
+
+    if results_tuple != [[]] and results_tuple != []:
+        doc_group_id = results_tuple[0][0]
     else:
         doc_group_id = 0
 
@@ -100,7 +105,7 @@ def load_index(store_name: str = "class_documents_index") -> VectorStoreIndex:
     return index
 
 def read_file(file_path: str) -> str:
-    with open(file_path, 'r') as file:
+    with open(file_path, 'r', encoding='utf-8') as file:
         return file.read()
 
 
@@ -108,11 +113,17 @@ def get_docs_from_index(index: VectorStoreIndex) -> List[Doc]:
 
     docs = []
     doc_group_id = get_latest_doc_group()
+    _logger.debug(f"Getting docs from index: {index}")
+    _logger.debug(f"Index doc info: {index.ref_doc_info}")
+
     for key in index.ref_doc_info.keys():
-        doc_name = index.ref_doc_info[key].metadata['file_name']
-        doc_location = index.ref_doc_info[key].metadata['file_path']
+        doc_name = index.ref_doc_info[key].metadata['filename']
+        # we don't really have a filepath set up, so we'll use local for now-
+        # doc_location = index.ref_doc_info[key].metadata['file_path']
+        doc_location = f"data/{doc_name}"
         # read the doc and get content
         doc_content = read_file(doc_location)
+        _logger.debug(f"Doc content: \n {doc_content}")
         doc_active = 1
 
         doc = Doc(
@@ -140,14 +151,17 @@ def init_existing_docs(conn:Connection) -> List[Doc]:
     cur = conn.cursor()
     cur.execute(sql)
     results_tuple = cur.fetchone()
+    _logger.debug(f"Existing docs in db: \n {results_tuple}")
 
-    if len(results_tuple) < 1:
-        # if no existing docs in db, try to create them in the db
-        docs = get_docs_from_index()
+    if results_tuple[0] < 1:
+        _logger.debug("No existing docs in db, trying to create them")
+        index = load_index()
+        docs = get_docs_from_index(index)
+        for doc in docs:
+            doc.insert()
 
     else:
-        # if existing docs in db, return them (if active)
+        _logger.debug("Existing docs in db, returning them")
         docs = get_latest_docs()
-
 
     return docs

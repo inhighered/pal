@@ -27,7 +27,7 @@ def get_latest_chats(conn:Connection, user: User) -> List[Chat]:
         doc_group_id,
         timestamp
     FROM app.chats
-        WHERE session_id = {session_id}
+        WHERE session_id = '{session_id}'
     ORDER BY timestamp DESC
     """
 
@@ -44,14 +44,14 @@ def get_latest_chats(conn:Connection, user: User) -> List[Chat]:
     return chats
 
 
-@with_connection()
+@with_connection
 def clear_chat(conn:Connection, chat:Chat) -> bool:
     # clear chat history (soft delete) based on chat_session
     chat_session = chat.chat_session
     sql = f"""UPDATE
         chat_session_state = 0
     FROM app.chats
-        WHERE chat_session = {chat_session}
+        WHERE chat_session = '{chat_session}'
     """
     cur = conn.cursor()
     cur.execute(sql)

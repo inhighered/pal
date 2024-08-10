@@ -43,7 +43,7 @@ class User:
         FROM 
             app.chats
         WHERE 
-            session_id = {self.session_id}
+            session_id = '{self.session_id}'
         """
         _logger.debug(f"Getting chats for user {self.session_id}")
         try:
@@ -109,12 +109,12 @@ class Doc:
     doc_active: int # 1 - active, 0 - inactive
     doc_hash: str = None
 
-    def _hash_doc(doc:str) -> str:
-        hash = hashlib.sha512(doc.encode()).hexdigest()
+    def _hash_doc(self) -> str:
+        hash = hashlib.sha512(self.doc_content.encode()).hexdigest()
         return hash
 
     def __post_init__(self):
-        doc_hash = self._hash_doc(self.doc_content)
+        doc_hash = self._hash_doc()
         self.doc_hash = doc_hash
         validate_types(self)
 
@@ -126,10 +126,10 @@ class Doc:
             (%s, %s, %s, %s, %s, %s)
         """
         values = (self.doc_group_id, self.doc_name, self.doc_location, self.doc_content, self.doc_hash, self.doc_active)
-        _logger.debug(f"Inserting docs {self.doc_group_id}, {self.doc_name}, {self.doc_location}, {self.doc_content}, {self.doc_hash}, {self.doc_active} into app.docs")
+        _logger.debug(f"Inserting docs {self.doc_group_id}, {self.doc_name}, {self.doc_location}, {self.doc_content[0:250]}, {self.doc_hash}, {self.doc_active} into app.docs")
         try:
             insert_with_conn(sql, values)
         except Exception as e:
-            _logger.warning(f"Error {e} \nError inserting doc {self.doc_group_id}, {self.doc_location}, {self.doc_content}, {self.doc_hash}, {self.doc_active} into app.docs")
+            _logger.warning(f"Error {e} \nError inserting doc {self.doc_group_id}, {self.doc_location}, {self.doc_content[0:250]}, {self.doc_hash}, {self.doc_active} into app.docs")
             
 

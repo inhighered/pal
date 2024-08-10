@@ -136,6 +136,7 @@ async def async_index_wrapper(user_message) -> str:
 
 
 async def initialize_chat_history(session_ip: str)-> Tuple[User, List[Chat], int]:
+    
     user = get_user_from_ip(session_ip)
     chats = get_latest_chats(user)
     doc_group_id = get_latest_doc_group()
@@ -149,7 +150,7 @@ async def handle_websocket_chat(websocket: WebSocket, session_state: dict):
 
     # ---Initialize chat history-----
     session_ip = websocket.client.host
-    user, chats, doc_group_id = initialize_chat_history(session_ip)
+    user, chats, doc_group_id = await initialize_chat_history(session_ip)
 
     if chats != []:
         for chat in chats:
@@ -174,7 +175,7 @@ async def handle_websocket_chat(websocket: WebSocket, session_state: dict):
             existing_chat_session, # chat_session
             1, # chat_session_state: int # 1 - active, 0 - inactive
             "user", # message_type: str
-            user_message, # message: str
+            user_message["chat_message"], # message: str
             doc_group_id
         )
 

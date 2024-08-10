@@ -2,7 +2,7 @@ from fastapi import WebSocket, APIRouter, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import HTMLResponse
 
-from app.routers.chat_utils import handle_websocket_chat, simple_ws_test
+from app.routers.chat_utils import handle_websocket_chat
 from app.routers.mock_chat_utils import mock_handle_websocket_chat
 from app.utils.sessions import get_session_id, get_session_id_ws
 
