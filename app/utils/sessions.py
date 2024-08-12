@@ -1,10 +1,12 @@
-from fastapi import Request
+from fastapi import Request, WebSocket
 from fastapi.exceptions import HTTPException
 
 from app.config import app_session, users
 import random
 
-from app.utils.database.models import User, get_user_from_ip
+from app.utils.database.models import User
+from app.utils.database.user_utils import get_user_from_ip
+from app.utils.database.doc_utils import init_existing_docs
 
 from logging import getLogger
 _logger = getLogger(__name__)
@@ -19,6 +21,9 @@ def init_session(request: Request) -> dict:
     # for now in dict or in db
     session_id = None
     user_ip = request.client.host
+    
+    # We need to init the existing docs, since the chat session will depend on them
+    existing_docs = init_existing_docs()
 
     # in session dict:
     for key in app_session.keys():
@@ -152,6 +157,15 @@ def get_session_id(request: Request) -> int:
     # just get the session id from the cookie, else none
 
     session_id = request.cookies.get("session_id")
+    if session_id is None or int(session_id) not in app_session:
+        #raise HTTPException(status_code=401, detail="Invalid Session ID")
+        return None
+    return int(session_id)
+
+
+def get_session_id_ws(websocket: WebSocket) -> int:
+
+    session_id = websocket.cookies.get("session_id")
     if session_id is None or int(session_id) not in app_session:
         #raise HTTPException(status_code=401, detail="Invalid Session ID")
         return None

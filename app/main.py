@@ -8,8 +8,8 @@ from fastapi.middleware.cors import CORSMiddleware
 import uuid
 from datetime import timedelta
 
-from .internal import admin, login
-from .routers import chat
+from app.internal import admin, login
+from app.routers import chat
 from app.config import TEMPLATES
 from app.utils.sessions import  create_session, create_user, init_state
 
