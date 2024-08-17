@@ -40,6 +40,6 @@ jobs:
 
       - name: Build + Push Pal Image
         run: |
-          docker build -t  ${{ env.REGISTRY_PATH }}/${{ env.APP_IMAGE }}:latest ./pal
+          docker build -t  ${{ env.REGISTRY_PATH }}/${{ env.APP_IMAGE }}:latest .
           docker push  ${{ env.REGISTRY_PATH }}/${{ env.APP_IMAGE }}:latest
 
