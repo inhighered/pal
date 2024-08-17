@@ -12,6 +12,9 @@ on:
 
 jobs:
   test:
+    env:
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      
     name: testing
     runs-on: ubuntu-latest
     strategy:
