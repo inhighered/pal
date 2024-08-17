@@ -13,5 +13,4 @@ __pycache__/**
 **.terraform/**
 **/.terraform*
 **/push_to_ecr.sh
-vector_db/**
 infra/**
