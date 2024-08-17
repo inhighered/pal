@@ -7,7 +7,6 @@ from fastapi.responses import HTMLResponse, RedirectResponse
 from jinja2 import Environment, PackageLoader
 from typing import Optional
 from typing_extensions import Annotated
-from pydantic import BaseModel
 
 #from app.utils.auth import AuthCookie, get_login_form_creds, get_auth_cookie
 from app.utils.sessions import set_user_admin, get_user_admin

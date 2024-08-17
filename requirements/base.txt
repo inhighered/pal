@@ -5,4 +5,5 @@ websockets
 python-multipart
 markdown
 Jinja2
-gunicorn
+uvicorn
+psycopg[binary,pool]
