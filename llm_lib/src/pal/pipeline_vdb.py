@@ -3,18 +3,20 @@
 from pal.query_vdb import query, retrieve, get_query_engine
 from pal.load_vdb import create_index, load_index, create_index_if_not_exists
 
-from llama_index.llms.openai import OpenAI
-
 from llama_index.core import (
-    ServiceContext,
+    Settings,
+    # ServiceContext,
 )
+
+from llama_index.embeddings.openai import OpenAIEmbedding
+from llama_index.llms.openai import OpenAI
 
 import os
 from typing import List
 
 
 
-
+# TODO - Consolidate these later
 
 def create_and_retreive_context_vdb(user_query:str, 
                                     model:str = "gpt-3.5-turbo",
@@ -27,14 +29,25 @@ def create_and_retreive_context_vdb(user_query:str,
         model = model
     )
 
-    service_context = ServiceContext.from_defaults(
-        llm = llm
-    )
+    # service_context = ServiceContext.from_defaults(
+    #     llm = llm
+    # )
+
+    embedding = OpenAIEmbedding(
+            model="text-embedding-3-small",
+            openai_api_key=os.environ['OPENAI_API_KEY'],
+            embed_batch_size=100
+        )
+
+
+    Settings.llm = llm
+    Settings.embed_model = embedding
 
     index = create_index_if_not_exists(
         model=model,
         llm=llm, 
-        service_context=service_context
+        embedding=embedding,
+        service_context=Settings
         )
 
     content = retrieve(user_query, 
@@ -54,14 +67,25 @@ def create_and_query_vdb(user_query:str, model:str = "gpt-3.5-turbo"):
         model = model
     )
 
-    service_context = ServiceContext.from_defaults(
-        llm = llm
-    )
+    # service_context = ServiceContext.from_defaults(
+    #     llm = llm
+    # )    
+
+    embedding = OpenAIEmbedding(
+            model="text-embedding-3-small",
+            openai_api_key=os.environ['OPENAI_API_KEY'],
+            embed_batch_size=100
+        )
+
+
+    Settings.llm = llm
+    Settings.embed_model = embedding
 
     index = create_index_if_not_exists(
         model=model,
         llm=llm, 
-        service_context=service_context
+        embedding=embedding,
+        service_context=Settings
         )
     
     query_engine = get_query_engine(index)
@@ -79,14 +103,25 @@ def create_index_default_context(model:str = "gpt-3.5-turbo"):
         model = model
     )
 
-    service_context = ServiceContext.from_defaults(
-        llm = llm
-    )
+    # service_context = ServiceContext.from_defaults(
+    #     llm = llm
+    # )
+
+    embedding = OpenAIEmbedding(
+            model="text-embedding-3-small",
+            openai_api_key=os.environ['OPENAI_API_KEY'],
+            embed_batch_size=100
+        )
+
+
+    Settings.llm = llm
+    Settings.embed_model = embedding
 
     index = create_index_if_not_exists(
         model=model,
         llm=llm, 
-        service_context=service_context
+        embedding=embedding,
+        service_context=Settings
         )
     
     return index

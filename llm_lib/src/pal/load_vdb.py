@@ -2,10 +2,12 @@ from llama_index.core import (
     VectorStoreIndex,
     SimpleDirectoryReader,
     get_response_synthesizer,
-    ServiceContext,
+    #ServiceContext,
+    Settings,
     StorageContext,
     load_index_from_storage,
 )
+from llama_index.embeddings.openai import OpenAIEmbedding
 from llama_index.llms.openai import OpenAI
 from llama_index.readers.file import FlatReader
 
@@ -30,7 +32,7 @@ def add_test_files(data_path: str = "data") -> None:
             shutil.copy(f"data/{document}", f"llm_lib/data/{document}")
 
 def create_index(
-    service_context: ServiceContext,
+    service_context: dict, # now settings,
     data_path: str = "data",
     store_name: str = "class_documents_index",
 ) -> None:
@@ -57,7 +59,8 @@ def create_index(
 
     index = VectorStoreIndex(
         nodes,
-        service_context=service_context,
+        #service_context=service_context,
+        embed_model=service_context.embed_model,
         response_synthesizer=response_synthesizer,
         show_progress=True,
     )
@@ -105,7 +108,9 @@ def get_index_exists_status():
 
 def create_index_if_not_exists(model:str = "gpt-3.5-turbo",
                                llm:OpenAI = None,
-                               service_context: ServiceContext = None):
+                               embedding:OpenAIEmbedding = None,
+                               service_context: dict = None # now settings
+                               ):
     if not llm:
         llm = OpenAI(
             temperature=0.2,
@@ -113,10 +118,21 @@ def create_index_if_not_exists(model:str = "gpt-3.5-turbo",
             model = model
         )
 
-    if not service_context:
-        service_context = ServiceContext.from_defaults(
-            llm = llm
+    if not embedding:
+        embedding = OpenAIEmbedding(
+            model="text-embedding-3-small",
+            openai_api_key=os.environ['OPENAI_API_KEY'],
+            embed_batch_size=100
         )
+
+    if not service_context:
+        # service_context = ServiceContext.from_defaults(
+        #     llm = llm
+        # )
+        Settings.llm = llm
+        Settings.embed_model = embedding
+
+    
 
     try:
         index = load_index()
@@ -124,7 +140,7 @@ def create_index_if_not_exists(model:str = "gpt-3.5-turbo",
     except:
         try:
             print("attempting to create index")
-            create_index(service_context)
+            create_index(Settings)
             index = load_index()
             print("index created")
         except:
