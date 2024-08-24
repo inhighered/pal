@@ -22,8 +22,11 @@ from root:
 uvicorn app.main:app --host 0.0.0.0 --port 8001
 ```
 
-### Testing - pytest
-from root:
+### Testing
+Spin up postgres db locally (see pal_infra repo)  
+Connect through PGAdmin container if needed as well  
+
+pytest - from root:
 ```bash
 python -m pytest
 ```
