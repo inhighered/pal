@@ -8,6 +8,8 @@ from app.utils.database.db_utils import (
 
 from psycopg import Connection
 
+from logging import getLogger
+_logger = getLogger(__name__)
 
 # ---------------- User Queries ----------------- 
 
@@ -21,14 +23,18 @@ def get_user_from_ip(conn: Connection, user_ip: str) -> User:
     FROM 
         app.users
     WHERE 
-        user_ip = '{user_ip}'
+        user_ip = %s
     ORDER BY timestamp DESC 
     LIMIT 1
     """
     cur = conn.cursor()
-    cur.execute(sql)
+    cur.execute(sql, (user_ip, ))
     results_tuple = cur.fetchone()
+
+    _logger.info(f"User results: {results_tuple} \n For User IP: {user_ip}")
 
     user = User(str(results_tuple[0]), str(results_tuple[1]), timestamp = results_tuple[2])
     
     return user
+
+

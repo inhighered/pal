@@ -30,7 +30,7 @@ COPY . .
 RUN pip install --no-cache-dir -r requirements/base.txt
 
 
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvicorn", "app.main:app", "--proxy-headers", "--forwarded-allow-ips=*", "--host", "0.0.0.0", "--port", "8000"]
 # uvicorn app.main:app --host 0.0.0.0 --port 8000
 # test prompt: What are some details about the technical writing course? Your response should be 2000 words
 
