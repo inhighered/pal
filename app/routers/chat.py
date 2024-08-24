@@ -2,7 +2,7 @@ from fastapi import WebSocket, APIRouter, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import HTMLResponse
 
-from app.routers.chat_utils import handle_websocket_chat
+from app.routers.chat_utils import handle_websocket_chat, clear_session_chat
 from app.routers.mock_chat_utils import mock_handle_websocket_chat
 from app.utils.sessions import get_session_id, get_session_id_ws
 
@@ -36,7 +36,8 @@ async def clear_chat(request: Request):
 
     session_id = get_session_id(request)
     print("Clearing chat history for session: ", session_id)
-    #session_state["messages"] = []
+    session_state["messages"] = []
+    clear_session_chat(request)
 
     content_chunk = """<div id="content">
         <div id="history"></div>

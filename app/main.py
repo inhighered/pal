@@ -64,3 +64,7 @@ async def root(request: Request):
     return response
 
 
+@app.get("/health")
+async def health_check():
+    return {"status": "ok"}
+

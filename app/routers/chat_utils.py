@@ -23,7 +23,7 @@ from app.utils.sessions import get_session_id
 # db utils--
 from app.utils.database.models import Chat, User
 from app.utils.database.user_utils import get_user_from_ip
-from app.utils.database.chat_utils import get_latest_chats
+from app.utils.database.chat_utils import get_latest_chats, clear_chat
 from app.utils.database.doc_utils import get_latest_doc_group
 
 
@@ -49,7 +49,7 @@ stream_template = TEMPLATES_SIMPLE_ENV.get_template(f"{CHAT_TEMPLATES_PATH}/chat
 ref_data_template = TEMPLATES_SIMPLE_ENV.get_template(f"{CHAT_TEMPLATES_PATH}/chat_ref_data.html")
 history_template = TEMPLATES_SIMPLE_ENV.get_template(f"{CHAT_TEMPLATES_PATH}/chat_history.html")
 
-logger = logging.getLogger(__name__)
+_logger = logging.getLogger(__name__)
 
 
 async def loading_user_response(websocket: WebSocket) -> str:
@@ -226,6 +226,21 @@ async def handle_websocket_chat(websocket: WebSocket, session_state: dict):
 
 
         
+
+
+
+def clear_session_chat(request:Request) -> None:
+    session_ip = request.client.host
+    _logger.info(f"Clearing chat history for session: {get_session_id(request)}")
+    _logger.info(f"Clearing chat history for user ip: {session_ip}")
+    user = get_user_from_ip(session_ip)
+    chats = get_latest_chats(user)
+    for chat in chats:
+        clear_chat(chat)
+
+    return None
+
+
 
 
 ## -----------------------------------
