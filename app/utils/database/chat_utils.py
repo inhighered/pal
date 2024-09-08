@@ -15,7 +15,7 @@ from psycopg import Connection
 
 @with_connection
 def get_latest_chats(conn:Connection, user: User) -> List[Chat]:
-    # get latest chat based on user ip
+    # get latest chat based on session id
     # return false if no chat exists
     session_id = user.session_id
     sql = f"""SELECT 
@@ -28,7 +28,8 @@ def get_latest_chats(conn:Connection, user: User) -> List[Chat]:
         timestamp
     FROM app.chats
         WHERE session_id = %s
-    ORDER BY timestamp DESC
+        AND chat_session_state = 1
+    ORDER BY chat_id ASC
     """
 
     cur = conn.cursor()
