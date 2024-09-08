@@ -9,20 +9,21 @@ from app.utils.sessions import get_session_id, get_session_id_ws
 #router = APIRouter(prefix="/chat", tags=["chat"])
 router = APIRouter()
 
+# # # TODO - Make this dependant on state
+# session_state = {}
 
-# # TODO - Make this dependant on state
-session_state = {}
+# # Initialize chat history
+# if "messages" not in session_state:
+#     session_state["messages"] = []
 
-# Initialize chat history
-if "messages" not in session_state:
-    session_state["messages"] = []
 
 
 @router.websocket("/ws")
 async def websocket_endpoint(websocket: WebSocket):
 
 
-    return await handle_websocket_chat(websocket, session_state)
+    #return await handle_websocket_chat(websocket, session_state)
+    return await handle_websocket_chat(websocket)
     # works
     # return await simple_ws_test(websocket)
 
@@ -36,7 +37,7 @@ async def clear_chat(request: Request):
 
     session_id = get_session_id(request)
     print("Clearing chat history for session: ", session_id)
-    session_state["messages"] = []
+    # session_state["messages"] = []
     clear_session_chat(request)
 
     content_chunk = """<div id="content">

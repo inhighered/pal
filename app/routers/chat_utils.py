@@ -140,26 +140,15 @@ async def initialize_chat_history(session_ip: str)-> Tuple[User, List[Chat], int
     user = get_user_from_ip(session_ip)
     chats = get_latest_chats(user)
     doc_group_id = get_latest_doc_group()
+    print(f"--------got latest latest chats:----------\n {chats}")
 
     return user, chats, doc_group_id
 
 
-async def handle_websocket_chat(websocket: WebSocket, session_state: dict):
+async def handle_websocket_chat(websocket: WebSocket): # session_state: dict):
+
 
     await websocket.accept()
-
-    # ---Initialize chat history-----
-    session_ip = websocket.client.host
-    user, chats, doc_group_id = await initialize_chat_history(session_ip)
-
-    if chats != []:
-        for chat in chats:
-            session_state["messages"].append({"role": chat.message_type, "content": chat.message})
-
-    if chats != []:
-        existing_chat_session = chats[0].chat_session
-    else:
-        existing_chat_session = '0'
 
 
     while True:
@@ -168,8 +157,26 @@ async def handle_websocket_chat(websocket: WebSocket, session_state: dict):
         user_message = await websocket.receive_json()
         print(f"got data: {str(user_message)}")
 
+    
+        # ---Initialize chat history-----
+        # we do it here so we can see if any messages have been cleared
+        session_ip = websocket.client.host
+        user, chats, doc_group_id = await initialize_chat_history(session_ip)
+
+        chats_formatted = []
+        if chats != []:
+            for chat in chats:
+                chats_formatted.append({"role": chat.message_type, "content": chat.message})
+
+        # this isn't being used yet
+        if chats != []:
+            existing_chat_session = chats[0].chat_session
+        else:
+            existing_chat_session = '0'
+
+
         # update the state with the user message
-        session_state["messages"].append({"role": "user", "content": user_message["chat_message"]})
+        chats_formatted.append({"role": "user", "content": user_message["chat_message"]})
         user_chat = Chat(
             user.session_id, # session_id
             existing_chat_session, # chat_session
@@ -178,13 +185,12 @@ async def handle_websocket_chat(websocket: WebSocket, session_state: dict):
             user_message["chat_message"], # message: str
             doc_group_id
         )
-
         user_chat.insert()
 
-        print("---------State after user message ---------------\n", session_state["messages"])
+        print("---------State after user message ---------------\n", chats_formatted)
 
         # generate the chat history with all the messages
-        chat_history = history_template.render(prev_messages=session_state["messages"])
+        chat_history = history_template.render(prev_messages=chats_formatted)
         print("--------------chat history---------------: ", chat_history)
 
         # set stream as loading while waiting for the llm response 
@@ -206,7 +212,7 @@ async def handle_websocket_chat(websocket: WebSocket, session_state: dict):
         system_text = await handle_websocket_stream(websocket, query)
 
         # update the system content state with the stream
-        session_state["messages"].append({"role": "system", "content": system_text})
+        # chats_formatted.append({"role": "system", "content": system_text})
 
         sys_chat = Chat(
             user.session_id, # session_id
@@ -218,7 +224,7 @@ async def handle_websocket_chat(websocket: WebSocket, session_state: dict):
         )
         sys_chat.insert()
 
-        print("--------Current Messages--------- \n", session_state["messages"])
+        # print("--------Current Messages--------- \n", chats_formatted)
 
 
         # finally return the ref info for the last message
