@@ -3,8 +3,13 @@ from typing import Generator, List, Optional, Dict, Any, AsyncGenerator
 from dataclasses import dataclass, field
 import asyncio
 from openai import OpenAI
+from ollama import Client
+import os
 
-client = OpenAI()
+if os.getenv('OPENAI_API_KEY') is None:
+    client = Client(host=os.environ['OLLAMA_BASE_URL'])
+else:
+    client = OpenAI()
 
 def response_generator(user_message: str):
     # In a real scenario we would want to pass the user message to an LLM
@@ -78,25 +83,39 @@ async def async_rag_response_mock_generator(user_message:str):
 
     return stream_resp
 
-
-from openai import OpenAI
-client = OpenAI()
-
 def mock_open_ai_response_generator(user_message:str)-> Generator:
 
-    stream_resp = StreamingResponse(
-        response_gen=client.chat.completions.create(
-    model='gpt-3.5-turbo',
-    messages=[
-        {'role': 'user', 'content': user_message}
-    ],
-    temperature=0,
-    stream=True
-    ),
-        source_nodes=[],
-        metadata = {},
-        response_txt="streaming response mock"
-    )
+    if os.getenv('OPENAI_API_KEY') is None:
+        client = Client(host = os.environ['OLLAMA_BASE_URL'])
+        stream_resp = StreamingResponse(
+            response_gen = client.chat(
+                model="llama3.2:1b",
+                messages=[
+                    {'role': 'user', 'content': user_message}
+                ],
+                stream=True,
+            ),
+            source_nodes=[],
+            metadata = {},
+            response_txt="streaming response mock"
+        )
+
+    else:
+        client = OpenAI()
+        stream_resp = StreamingResponse(
+            response_gen=client.chat.completions.create(
+        model='gpt-3.5-turbo',
+        messages=[
+            {'role': 'user', 'content': user_message}
+        ],
+        temperature=0,
+        stream=True
+        ),
+            source_nodes=[],
+            metadata = {},
+            response_txt="streaming response mock"
+        )
+    
 
     return stream_resp
 

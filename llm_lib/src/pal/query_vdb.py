@@ -9,8 +9,11 @@ from llama_index.core.base.response.schema import StreamingResponse
 
 # workaround for streaming issues that llamaindex has
 from openai import OpenAI
+import ollama 
+from ollama import Client
+import os
+from typing import Generator
 
-client = OpenAI()
 
 
 PROMPT_TEMPALTE = """
@@ -91,19 +94,37 @@ def manual_query(query:str) -> StreamingResponse:
     # There are issues with llamaindex streaming response,
     # so just manually stream for now
 
-    stream_resp = StreamingResponse(
-        response_gen=client.chat.completions.create(
-            model='gpt-3.5-turbo',
-            messages=[
-                {'role': 'user', 'content': query}
-            ],
-            temperature=0,
-            stream=True
+    if os.getenv('OPENAI_API_KEY') is None:
+        print("OpenAI API key not found, using Ollama")
+        client = Client(host = os.environ['OLLAMA_BASE_URL'])
+        stream_resp = StreamingResponse(
+            response_gen = client.chat(
+                model="llama3.2:1b",
+                messages=[
+                    {'role': 'user', 'content': query}
+                ],
+                stream=True,
             ),
-        source_nodes=[],
-        metadata = {},
-        response_txt="streaming response mock"
-    )
+            source_nodes=[],
+            metadata = {},
+            response_txt="streaming response mock"
+        )
+
+    else:
+        client = OpenAI()
+        stream_resp = StreamingResponse(
+            response_gen=client.chat.completions.create(
+                model='gpt-3.5-turbo',
+                messages=[
+                    {'role': 'user', 'content': query}
+                ],
+                temperature=0,
+                stream=True
+                ),
+            source_nodes=[],
+            metadata = {},
+            response_txt="streaming response mock"
+        )
 
     return stream_resp
 

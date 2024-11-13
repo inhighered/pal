@@ -3,3 +3,4 @@ fastapi
 httpx
 websockets
 python-multipart
+ollama

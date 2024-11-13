@@ -26,22 +26,17 @@ from app.utils.database.user_utils import get_user_from_ip
 from app.utils.database.chat_utils import get_latest_chats, clear_chat
 from app.utils.database.doc_utils import get_latest_doc_group
 
-
-
-from openai import OpenAI
-
 import asyncio
 from dataclasses import dataclass
 from copy import deepcopy
 from typing import Tuple, AsyncGenerator, List
 import logging
+import os
 
 from app.config import TEMPLATES_SIMPLE_ENV
 
-
 logging.basicConfig(level=logging.DEBUG)
 
-client = OpenAI()
 
 # Init templates to env
 CHAT_TEMPLATES_PATH = "chat/responses"
@@ -85,10 +80,22 @@ async def response_generator_helper(user_message:str) -> AsyncGenerator[Tuple[st
     for stream_text in stream_response:
         if stream_text is None:
             continue
-        if stream_text.choices[0].delta.content:
-            full_text += stream_text.choices[0].delta.content
-        
-        #full_text += stream_text
+        # print("stream_text: ", stream_text)
+        try:
+            # if open ai
+            if stream_text.choices[0].delta.content:
+                full_text += stream_text.choices[0].delta.content
+        except:
+            # ollama case
+            pass
+
+        try:
+            # if ollama
+            if stream_text['done'] == False:
+                full_text += stream_text['message']['content']
+        except:
+            # open ai case
+            pass
         
         stream_html = stream_template.render(current_stream = full_text)
 

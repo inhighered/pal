@@ -12,7 +12,10 @@ requires-python = ">=3.7"
 dependencies = [
     "pandas",
     "llama-index",
-    "openai"
+    "openai",
+    "llama-index-llms-ollama",
+    "llama-index-embeddings-ollama",
+    "ollama"
 ]
 
 [project.optional-dependencies]

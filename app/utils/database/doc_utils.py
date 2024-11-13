@@ -15,6 +15,8 @@ from app.utils.database.db_utils import (
     with_connection,
 )
 
+from pal import init_settings
+
 from psycopg import Connection
 
 from logging import getLogger
@@ -89,7 +91,8 @@ def get_latest_doc_group(conn:Connection) -> int:
 
 def load_index(store_name: str = "class_documents_index") -> VectorStoreIndex:
     # for now this name will be static
-
+    init_settings()
+    
     # load index if exists:
     try:
         print("trying to load index")

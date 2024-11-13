@@ -14,3 +14,4 @@ __pycache__/**
 **/.terraform*
 **/push_to_ecr.sh
 infra/**
+local_volume/**

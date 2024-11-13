@@ -8,14 +8,65 @@ from llama_index.core import (
     load_index_from_storage,
 )
 from llama_index.embeddings.openai import OpenAIEmbedding
+from llama_index.embeddings.ollama import OllamaEmbedding
 from llama_index.llms.openai import OpenAI
+from llama_index.llms.ollama import Ollama
 from llama_index.readers.file import FlatReader
 
 from pal.llama_index_cust_parser import HeadingMarkdownNodeParser
 
+from typing import Union
 import os
 import shutil
 from pathlib import Path
+
+
+def init_settings(model:str = "gpt-3.5-turbo",
+                               llm:Union[OpenAI, Ollama] = None,
+                               embedding:Union[OpenAIEmbedding, OllamaEmbedding] = None,
+                               service_context: dict = None # now settings
+                               ):
+    if os.getenv('OPENAI_API_KEY') is None:
+        print("OpenAI API key not found, using Ollama")
+        if not llm:
+            llm = Ollama(
+                model = "llama3.2:1b", # we'll assume this
+                base_url = os.environ['OLLAMA_BASE_URL'],
+                temperature=0.2,
+            )
+
+        if not embedding:
+            embedding = OllamaEmbedding(
+                model_name ="llama3.2:1b",
+                base_url = os.environ['OLLAMA_BASE_URL'],
+                ollama_additional_kwargs = {"mirostat": 0},
+            )
+
+    else:
+        print("OpenAI API key was found, using OpenAI")
+        if not llm:
+            llm = OpenAI(
+                temperature=0.2,
+                openai_api_key=os.environ['OPENAI_API_KEY'],
+                model = model
+            )
+
+        if not embedding:
+            embedding = OpenAIEmbedding(
+                model="text-embedding-3-small",
+                openai_api_key=os.environ['OPENAI_API_KEY'],
+                embed_batch_size=100
+            )
+
+    if not service_context:
+        # service_context = ServiceContext.from_defaults(
+        #     llm = llm
+        # )
+        Settings.llm = llm
+        Settings.embed_model = embedding
+    
+    return None
+
 
 
 def get_available_files(data_path: str = "data") -> list:
@@ -53,14 +104,18 @@ def create_index(
 
     print(f"generated nodes {len(nodes)}")
 
+    # populate "Settings" with llm and embedding
+    init_settings()
+
     response_synthesizer = get_response_synthesizer(
         use_async=True,
+        llm = Settings.llm,
     )
 
     index = VectorStoreIndex(
         nodes,
         #service_context=service_context,
-        embed_model=service_context.embed_model,
+        embed_model=Settings.embed_model,
         response_synthesizer=response_synthesizer,
         show_progress=True,
     )
@@ -69,6 +124,8 @@ def create_index(
 
 
 def load_index(store_name: str = "class_documents_index") -> VectorStoreIndex:
+    # populate "Settings" with llm and embedding
+    init_settings()
 
     # load index if exists:
     try:
@@ -104,26 +161,44 @@ def get_index_exists_status():
         return True
     except:
         return False
-
+    
 
 def create_index_if_not_exists(model:str = "gpt-3.5-turbo",
-                               llm:OpenAI = None,
-                               embedding:OpenAIEmbedding = None,
+                               llm:Union[OpenAI, Ollama] = None,
+                               embedding:Union[OpenAIEmbedding, OllamaEmbedding] = None,
                                service_context: dict = None # now settings
                                ):
-    if not llm:
-        llm = OpenAI(
-            temperature=0.2,
-            openai_api_key=os.environ['OPENAI_API_KEY'],
-            model = model
-        )
+    if os.getenv('OPENAI_API_KEY') is None:
+        print("OpenAI API key not found, using Ollama")
+        if not llm:
+            llm = Ollama(
+                model = "llama3.2:1b", # we'll assume this
+                base_url = os.environ['OLLAMA_BASE_URL'],
+                temperature=0.2,
+            )
 
-    if not embedding:
-        embedding = OpenAIEmbedding(
-            model="text-embedding-3-small",
-            openai_api_key=os.environ['OPENAI_API_KEY'],
-            embed_batch_size=100
-        )
+        if not embedding:
+            embedding = OllamaEmbedding(
+                model_name ="llama3.2:1b",
+                base_url = os.environ['OLLAMA_BASE_URL'],
+                ollama_additional_kwargs = {"mirostat": 0},
+            )
+
+    else:
+        print("OpenAI API key was found, using OpenAI")
+        if not llm:
+            llm = OpenAI(
+                temperature=0.2,
+                openai_api_key=os.environ['OPENAI_API_KEY'],
+                model = model
+            )
+
+        if not embedding:
+            embedding = OpenAIEmbedding(
+                model="text-embedding-3-small",
+                openai_api_key=os.environ['OPENAI_API_KEY'],
+                embed_batch_size=100
+            )
 
     if not service_context:
         # service_context = ServiceContext.from_defaults(
@@ -131,9 +206,7 @@ def create_index_if_not_exists(model:str = "gpt-3.5-turbo",
         # )
         Settings.llm = llm
         Settings.embed_model = embedding
-
-    
-
+    # what was this? lol
     try:
         index = load_index()
         print("loaded existing index")
