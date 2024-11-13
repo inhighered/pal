@@ -12,7 +12,8 @@ __all__ = [
     "create_index_if_not_exists",
     "manual_query",
     "create_index_default_context",
-    "manual_get_query_context"
+    "manual_get_query_context",
+    "init_settings",
 ]
 
 from pal.pipeline_vdb import create_and_retreive_context_vdb, create_and_query_vdb, create_index_default_context
@@ -24,6 +25,7 @@ from pal.load_vdb import (
     clear_files, 
     get_index_exists_status,
     create_index_if_not_exists,
+    init_settings,
 )
 from pal.query_vdb import manual_query, manual_get_query_context
 from pal.mock import mock_streaming_query
