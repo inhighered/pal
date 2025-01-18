@@ -15,7 +15,10 @@ from app.utils.database.db_utils import (
     with_connection,
 )
 
-from pal import init_settings
+from pal import (
+    init_settings,
+    create_index_if_not_exists
+)
 
 from psycopg import Connection
 
@@ -92,6 +95,7 @@ def get_latest_doc_group(conn:Connection) -> int:
 def load_index(store_name: str = "class_documents_index") -> VectorStoreIndex:
     # for now this name will be static
     init_settings()
+    create_index_if_not_exists()
     
     # load index if exists:
     try:

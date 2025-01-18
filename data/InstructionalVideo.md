@@ -1,4 +1,4 @@
-# Technical Video
+# Instructional Video
 
 This project is part of the Media Skill Group (#4), so the points contribute to the overall total and the Group 4 points. The highest score from the media group will be used with the three lowest or skipped dropped. Students should pick the one media and video production project they want to complete.
 
@@ -6,30 +6,29 @@ Students should refer to the links, resources, rubrics, and other complete infor
 
 ## Project Scope
 
-Our technical writing firm has been hired by a Client to create an informative and educational video on a technical topic to be shared on the company's website and social media channels. Your target audience includes high school and university students and those in the early stages of their STEM careers. Your mission is to choose a technical topic that you're passionate about and present it in an engaging and informative way. The video must include narration/audio—so YOU verbally explain the topic—and various visuals to enhance understanding. Your video must include some cuts and edits rather than a single take. The final video will be 3-6 minutes long and will be submitted as a link so I can view it on YouTube, Vimeo, Stream, etc  
-.  
-NOTE: This video option is designed for those with an existing video experience, skill, interest, and equipment. I recommend selecting the more beginner-friendly options if you have not produced and edited a video before. 
+Our technical writing firm has been hired by a Client to create a video demonstration for their products. You've been assigned to develop that video that guides potential customers through your product's set-up, instructions, and troubleshooting. Your audience comprises individuals who have purchased or are considering purchasing the product. They may have varying levels of familiarity with similar products, so creating a video that is easy to understand for beginners and informative for those with some prior experience is essential. The video will be posted on the product's promotional website and linked in confirmation emails sent to customers after purchase. The final video will be 3-6 minutes long and will be submitted as a link so I can view it on YouTube, Vimeo, Stream, etc.
+
+NOTE: This video option is for an intermediate skill level with video. You don't need editing experience, as single takes can capture the demonstration. However, having some tools and knowledge may be needed. 
 
 *The first step of ANY project is setting up the CAMP site. This section breaks down the assignment scenario into the key components: CONTEXT, AUDIENCE, MESSAGE, and PRODUCT. This will help you understand the client's needs and how to approach this technical writing project.*
 
 ### CONTEXT: The Goals and Asks
 
-The Goals: To create an informative and educational video on a technical topic.
+The Goals: To create a video demonstration that effectively guides customers through the product's setup, instructions, and troubleshooting.
 
 The Asks:
 
-* Ask 1: Choose a technical topic that you are passionate about.  
-  * Ask 2: Write a script that explains the topic in an engaging and informative way.  
-  * Ask 3: Create or curate visuals (images, animations, diagrams) to enhance understanding.  
-  * Ask 4: Record narration/audio to accompany the visuals.  
-  * Ask 5: Edit the video, incorporating cuts and transitions, to create a dynamic and engaging final product.  
+* Ask 1: Develop a script that outlines the key steps involved in setting up, using, and troubleshooting the product.  
+  * Ask 2: Record video footage demonstrating each step clearly and concisely.  
+  * Ask 3: Incorporate narration or on-screen text to guide viewers through the process.  
+  * Ask 4: Edit the video, adding music, transitions, and visual effects to enhance engagement.  
   * Ask 6: Reflect on the process in a project completion report
 
  
 
 ### AUDIENCE: The Who and Style
 
-The Who: High school and university students, early-career STEM professionals. Some may be highly motivated and advanced in STEM subjects, while others may be just starting to explore these fields. They will want a focus on how the technical topic can be applied to real-world problems and challenges they face. They will also expect you to cater to different learning preferences by using a variety of visuals, examples, and explanations. You are welcome to incorporate current trends, memes, or popular culture references (where appropriate) to make the video relatable.
+The Who:  Individuals who have purchased or are considering purchasing the product. They will want a focus on how the technical topic can be applied to real-world problems and challenges they face. They will also expect you to cater to different learning preferences by using a variety of visuals, examples, and explanations. They also expect guidance on specific features or troubleshooting.
 
 The Style: They need to connect with the topic and understand how it might apply to their experiences, so you should write your script in an [Affective Style.](https://pressbooks.pub/hayleyinhighered/chapter/intro-to-technical-writing/) This doesn't mean to overly simplify or make it non-technical... it means sharing an experience and really relating to the audience. It is the most easily understood by the widest audience type and is meant to create a connection, show the use-value, and generate interest in a topic. The audience is generally assumed to be a bit unmotivated or unsure how and why the topic is useful or related to them. This style is most useful as a strategy inside of larger presentations–like stopping to explain how the product can be used or a solution is so valuable to fund. I do use an affective style during lectures and workshop activities when teaching as a way to introduce and help show the connections with our concepts to your careers or personal life.  
 
@@ -40,19 +39,20 @@ The Style: They need to connect with the topic and understand how it might apply
 
 ### MESSAGE: The Purpose and Content
 
-Purpose Statement: To produce a high-quality video suitable for sharing on the client's website and social media channels that educates and fosters interest in chosen topic.
+Purpose Statement: To produce a high-quality video suitable for sharing on the client's website that guides viewers through each step of using a product.
 
-* Section 1: Introduction to the topic and its significance.  
-* Section 2: Explanation of key concepts and principles.  
-* Section 3: Real-world applications and examples.  
-* Section 4: Potential career paths or further learning opportunities.  
+* Section 1: Introduction: Briefly introduce the product and its key features.  
+* Section 2: Setup: Provide step-by-step instructions on how to set up the product.  
+* Section 3: Instructions: Demonstrate how to use the product's various features and functions.  
+* Section 4: Troubleshooting: Address common issues and provide solutions or troubleshooting tips.  
+* Section 5: Conclusion: Summarize key takeaways and provide contact information for further assistance.  
 * Project Completion Report: Reflect on your experience, including challenges faced and lessons learned.
 
 Topic Ideas: Here are some ideas of acceptable topics that will meet the CAMP site. Select one of the prompts below:
 
-* Idea 1: The Basics of Artificial Intelligence: Explain the fundamental concepts of AI, its applications, and its potential impact on society.  
-* Idea 2: How Renewable Energy Works: Explore different types of renewable energy sources (solar, wind, hydro) and how they generate electricity.  
-* Idea 3: The Wonders of the Human Brain: Delve into the complexities of the brain, its functions, and how it shapes our thoughts and behaviors.
+* Idea 1: Smart Home Device: Demonstrate how to set up and use a smart home device, such as a smart speaker or smart lighting system.  
+* Idea 2: Software Application: Guide viewers through the installation and use of a software application, highlighting key features and functionalities.  
+* Idea 3: DIY Project: Provide step-by-step instructions on completing a DIY project, such as building a bookshelf or assembling furniture.
 
  
 
@@ -64,9 +64,9 @@ Topic Ideas: Here are some ideas of acceptable topics that will meet the CAMP si
 
  
 
-* Genre: [Descriptive Educational video](https://www.stc.org/techcomm/2021/07/30/developing-technical-videos-genres-or-templates-for-video-planning-storyboarding-scriptwriting-and-production/)  
+* Genre: [Product Demonstration Video](https://www.stc.org/techcomm/2021/07/30/developing-technical-videos-genres-or-templates-for-video-planning-storyboarding-scriptwriting-and-production/)  
 * Format: Video (3-6 minutes) hosted on a platform like YouTube, Vimeo, or Stream.  
-* Design: High-quality visuals and audio. Engaging editing with cuts, transitions, and visual effects. Use of appropriate music and sound effects.
+* Design: High-quality visuals and audio. Minimal cuts and may use appropriate music and sound effects.
 
 ## Graded Requirements
 
@@ -81,12 +81,8 @@ Your project will be graded on the following required elements:
    * *Process Reflection:* why you made your creative choices and solved problems during the project  
    * *Applications:* how the skills, technology, and experiences from this project will help you improve as a professional in your field  
 2. 3-6 Minute Video, published to YouTube, Stream, Vimeo, etc.  
-   * Explain the topic verbally and visually using logos (logic), pathos (connection), and ethos (credibility)  
-     * 1. Introduce yourself and your topic  
-     * 2. Explain the history, context, and developments of your topic  
-     * 3. Describe why or how your topic is applicable for the audience  
-   * Adjust your vocal variety (speed, rate, tone)  
-   * Edits, screen changes, b-roll, and visual production elements
+   * Explain how to complete the task, step-by-step, with tips and other commentary. Your video can be a “live” demo and commentary, an edited demo with narration, or a recorded slideshow/presentation.  
+   * Adjust your vocal variety (speed, rate, tone)
 
 You are also graded on the work's overall polish, editing, and professional impact.
 
@@ -104,7 +100,7 @@ The project is worth a maximum of 6 points. You can receive partial credit based
 
 ## Due Date
 
-Submit your work by February 15. The portal closes on February 17. You must upload a PDF containing your retrospective memo and project.
+Submit your work by March 15. The portal closes on March 17. You must upload a PDF containing your retrospective memo and project.
 
 Plan to submit a few hours before the due date to give yourself a buffer for the unexpected. You can use the 48-hour extension/grace period if something comes up. If you miss the grace period, you missed the project. You can use the ⭐Super Extension - 5/13 for one missed project.
 

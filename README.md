@@ -19,7 +19,7 @@ An app focused on RAG for Q+A and sourcing from markdown files.
 ### Run the app
 deps - database
 ```bash
-docker run --name pal-postgres-local -d --rm -v ${PWD}/local_volume:/var/lib/postgresql/data --env-file=db.env -p 5432:5432 pal-postgres
+docker run --name pal-postgres-local -d --rm -v ${PWD}/local_volume_2:/var/lib/postgresql/data --env-file=db.env -p 5432:5432 pal-postgres
 ```
 
 deps - ollama

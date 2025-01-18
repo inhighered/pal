@@ -1,18 +1,18 @@
 # Course Details
 
-The course runs in Fall 2024, beginning in August and ending in December. It is a 16-week hybrid course. A hybrid course means that 50-99% of materials are delivered online with some in-person instruction. This class meets one time per week with most content provided in Canvas.
+The course runs in Spring 2025, beginning in January and ending in May. Students should refer to the Office of the Registrar for official semester dates such as add, drop, and withdraw. The class is a 16-week hybrid course. A hybrid course means that 50-99% of materials are delivered online with some in-person instruction. This class meets one time per week with most content provided in Canvas. Students need to complete online reading, video, and activity materials between the one in-person meeting. Projects are primarily completed on their own time.
 
 ## Course Name and Instructor Information
 
 The course is TCID 2090, Technical Writing and Presentation. 
-The professor is Dr. Hayley Blackburn.
+The professor is Dr. Hayley Blackburn or HB.
 
 You can contact Dr. HB on teams or email at hblackbu@uccs.edu. She is laid-back as a professor and strongly believes this is YOUR education. Her job is curating an experience (including resources, guidance, and feedback) that allows you to practice technical communication. She values curiosity, agency, and productivity. The grading is set up to reward those values while not crushing you for one mistake or missed deadline. Your choices will lead to your outcomes, and she is here if you need more support. 
 
 
 ## Course Summary
-This class teaches the basics of technical writing and information design (presenting content) through 10 project options, three (3) reading activity options, and active lab work. Most weeks, you will have work due during class (activities & reflections), Fridays (reading homework), and Sundays (project milestones). You are graded on total points earned and NOT a percentage of the total work. This means you will plan and decide which projects, activities, and skills you want to complete to accrue the corresponding points. 
-* A = 40 points with 4+ points in every skill group (Descriptions, Instructions, Reports, Media, & Readings)
+This class teaches the basics of technical writing and information design (presenting content). You are graded on total points earned and NOT a percentage of the total work. This means you will plan and decide which projects, activities, and skills you want to complete to accrue the corresponding points. 
+* A = 40 points with 4+ points in every skill group (Descriptions, Instructions, Reports, Media, & Participation)
 * B+ = 40 points. No restriction on where points are earned.
 * B = 30 points. No restriction on where points are earned.
 * C = 20 points. No restriction on where points are earned.
@@ -39,7 +39,7 @@ As a student you get access to Microsoft Office  for up to five devices that you
 * The online materials are published in Canvas to complete independently. I've provided a required mini-lecture video, a full lecture podcast OR textbook chapter (the content is the same, so you can choose the format you prefer), a notetaking guide, and bonus content each week. 
 * The OER (free, open educational resource) “textbook” I’ve written for this class. The textbook includes help pages for the projects this semester to use.
 * The technology requirements for the campus. Computers (not Chromebooks or Tablet-Hybrids) are best for this class because we run Office products. You can complete all the assignments in the 365 Online environment…but it is less powerful with a few missing creative features. If you can’t bring a laptop to campus, we meet in a PC lab for class.
-* We will use AhaSlides, a participation and polling software. You will access it with a guest QR code during class and do not have to create an account. Ahaslides collects data on our responses, and you will not be asked to give sensitive data during a class poll.
+
 
 ## Policies
 
@@ -57,13 +57,13 @@ Mental health challenges can interfere with academic performance. The source of 
 * National Suicide Prevention Lifeline 800-273-8255 or text HELLO to 741741
 * Colorado Crisis Services 844-493-8255, text TALK to 38255 
 ### WEATHER CLOSURES
-When the campus is closed, your lab is canceled. If the campus is on a delayed opening, the lab will be held depending on the delay. For example, when the university is on a two-hour delay until 10 a.m., a lab that begins at 9:25 a.m. will not meet that day. In the Lab Check, you will state it was canceled, and those points will be skipped.
+When the campus is closed, your lab is canceled. If the campus is on a delayed opening, the lab will be held depending on the delay. For example, when the university is on a two-hour delay until 10 a.m., a lab that begins at 9:25 a.m. will not meet that day. 
 
 ### Late Work
 
-Every assignment has a due date and an automatic 48-hour extension before it closes. Work will only be accepted while the assignment is still open on Canvas. All work will be submitted through Canvas, so please don’t email me copies. Follow the instructions on Canvas for the expected format and file types accepted.
+Every assignment has a due date and an automatic 48-hour extension before it closes. Work will only be accepted while the assignment is still open on Canvas. All work will be submitted through Canvas, so please don’t email me copies. All assignments will be submitted as a PDF file to Canvas.
 Late work will be graded without penalty, but submitting all your work on time receives an end-of-semester bonus of 1 point.
-Grades are typically posted within ten (10) working days of the due date. If you want to earn more points OR miss an assignment, plan to complete the alternative opportunities to reach your desired grade. Other priorities, emergencies, procrastination, and life happens: move on if you miss something or score low and plan for the next chance.
+Grades are typically posted within ten (10) working days of the due date. If you want to earn more points OR miss an assignment, plan to complete the alternative opportunities to reach your desired grade. You also have one revision opportunity and one super-extension to correct mistakes or complete skipped work. Other priorities, emergencies, procrastination, and life happens: move on if you miss something or score low and plan for the next chance.
 
 ### AI
 
@@ -87,47 +87,54 @@ Every 2(ish) weeks, you have an opportunity to earn points with a project. You d
 The assignment portals on Canvas contain detailed instructions, due dates, resources, and rubrics. Below is an overview of the project categories.
 
 ### GROUP 1: SQUARES: DESCRIBING CONTENT
-Build documentation for products, processes, or concepts. You will demonstrate technical writing strategies for technical descriptions, specifications, graphics, and LLM prompting to describe content. You will choose from a Description Wiki, a Line Drawing AI Challenge, a Prototype Brief, and a Documentation Replication project. I recommend completing the Descriptions Wiki (6pts) and one alternative project (2pts). 
+Build documentation for products, processes, or concepts. You will demonstrate technical writing strategies for technical descriptions, specifications, graphics, and LLM prompting to describe content. You will choose from a Description Wiki, a Line Drawing AI Challenge, a Prototype Brief, and a Documentation Replication project. I recommend completing the Descriptions Wiki (6pts) and one alternative project. 
 
-* Descriptions Wiki due on September 22
-* Line Drawing Challenge due on October 27
-* Documentation Replication due on October 27
-* Prototype Brief due on October 27
+* Reference Library Wiki due on February 22
+* LLM Challenge: Descriptions due on February 22
+* Text Tools Challenge due on February 22
+* Prototype Brief due on February 22
+
+All of the projects in this group are due on the same day. You need to plan ahead and make choices with what or how you plan to complete the projects of interest. Remember that the due date is the final day to submit...not necessarily when you have to wait to start something.
 
 
 ### GROUP 2: CIRCLES: SUPPORTING ACTIONS
-Create instructional materials. You will use technical writing strategies for commands, graphics, and LLM prompting to support user actions directly. You will choose from a Tutorial eBooklet, a Progress Report, a Standard Operating Procedure AI Challenge, and a Safety Poster Replication. I recommend completing the Tutorial eBooklet (6pts) and one alternative project (2pts).
+Create instructional materials. You will use technical writing strategies for commands, graphics, and LLM prompting to support user actions directly. You will choose from a Tutorial eBooklet, a Progress Report, a Standard Operating Procedure AI Challenge, and a Safety Poster Replication. I recommend completing the Tutorial eBooklet (6pts) and one alternative project.
 
-* Tutorial eBooklet due on October 20
-* Safety Poster Replication due on October 27
-* Standard Operating Procedure Challenge due on October 27
-* Progress Report due on November 10
+* Tutorial eBooklet due on March 22
+* Graphic Tools Challenge due on March 22
+* LLM Challenge: SOP due on March 22
+* User Guide Analysis due on March 22
 
+All of the projects in this group are due on the same day. You need to plan ahead and make choices with what or how you plan to complete the projects of interest. Remember that the due date is the final day to submit...not necessarily when you have to wait to start something.
 
 ### GROUP 3: DIAMONDS: REPORTING DATA
-Create technical reports. You will use technical writing strategies for research, data analysis, graphics, and LLM prompting to report data. You will choose from a Recommendation Report, Usability Report, Research Brief, or Report Assessment of an AI document. I recommend completing EITHER the Recommendation Report or the Usability Report (8pts) and one alternative (3pts).
+Create technical reports. You will use technical writing strategies for research, data analysis, graphics, and LLM prompting to report data. You will choose from a Recommendation Report, Usability Report, Research Brief, or Report Assessment of an AI document. I recommend completing EITHER the Recommendation Report or the Usability Report (8pts) and one alternative.
 
-* Recommendation Report due on Sunday December 8
-* Usability Report due on Sunday December 8
-* Research Brief due on December 15
-* Report Assessment Challenge due on December 15
+* Recommendation Report due on April 26
+* Usability Report due on April 26
+* Research Brief due on April 26
+* Report Assessment Challenge due on April 26
 
+All of the projects in this group are due on the same day. You need to plan ahead and make choices with what or how you plan to complete the projects of interest. Remember that the due date is the final day to submit...not necessarily when you have to wait to start something.
 
 ### GROUP 4: CAMERAS: PRODUCING MEDIA
-Verbally and visually explain a technical subject using multimedia tools. You will use technical writing strategies for storyboarding, scripting, performing, and editing to produce technical media. You will choose from a Technical Video (think YouTube documentaries), a Recorded Presentation, or a Project Portfolio. I recommend completing either the video or the presentation (6pts) and the alternative as needed (3pts). 
+Verbally and visually explain a technical subject using multimedia tools. You will use technical writing strategies for storyboarding, scripting, performing, and editing to produce technical media. You will choose from a Technical Video (think YouTube documentaries), a video demonstration, a Recorded Presentation, or a Project Portfolio. You only earn the points for one option with the lowest three others being dropped from the calculation.
 
-* Technical Video due on September 29
-* Recorded Presentation due on November 24
-* Project Portfolio due on December 19
+* Technical Video due on February 15
+* Video Demonstration due on March 15
+* Recorded Presentation due on April 19
+* Project Portfolio due on May 10
 
 
 ### GROUP 5: BOOKS: PARTICIPATION
 Consistently engage with videos, readings, and labs to understand core concepts. You will use note-taking and participation strategies to gain information. You can complete a weekly Document Analysis by Wednesday nights and a Learning Check Quiz by Friday nights. I recommend completing both Document Analyses (6pts total, .5 each week) and Learning Checks (6pts total, .5 each week). You can retake the Learning Checks unlimited times for correct responses
+
+You will complete a lab reflection after attending or watching the stream online. You will receive 3 points for completing 10 reflections. That means you can miss 5 weeks of lab--including canceled days for weather or other reasons.
 .
 #### Document Analysis
 For this assignment, you will use the Hypothesis (https://web.hypothes.is/about/) tool to annotate an example of a related file. The Hypothesis tool will open in a new window and may request "authorization" with your Canvas account. Agree to the connection and then read the file using the tools. Search the Hypothesis Knowledge Base for troubleshooting, or contact Professor HB before the close date. She will respond to specific questions and select prompts in the feedback comment and during the following lab session (for common or outstanding thoughts).
 As you read the document, highlight and make at least 1 comment on each area (3 total comments). The work is due Wednesdays at midnight. You can earn .5 points from this activity and 6 points for completing all the documents in the semester.
-Graded as Complete/Incomplete based on your accurate, thoughtful engagement with the prompts.Professor HB is seeking personal ideas and connections to show you are thinking about the document.
+Graded as Complete/Incomplete based on your accurate, thoughtful engagement with the prompts. Professor HB is seeking personal ideas and connections to show you are thinking about the document.
 
 #### Learning Check In Quiz
 You will use notetaking and participation strategies to gain information. You can complete a weekly Document Analysis by Wednesday nights and a Learning Check Quiz by Friday nights.  Learning Checks (6pts total, .5 each week). You can retake the Learning Checks unlimited times for correct responses. Due: Friday by Midnight.
@@ -137,21 +144,26 @@ The quiz pulls 4 questions from a bank, so every attempt will show you a new com
  
 Remember, the goal is to learn and master the concepts, so take advantage of the unlimited attempts and use the hints to guide your review!
 
+#### Lab Reflections
+You will write a brief reflection about the lab activities and lessons from that day. In the reflection you need to demonstrate that you paid attention to what we did with specific details from class. If the reflection is too vague, you will not receive credit. You should also use the reflection to ask any questions or clarifications, and professor HB will respond in the feedback.
+
+You must complete 10 of the lab reflections to receive the 3 points of participation. There are 15 lab reflections available in the semester, so you can miss five of them. Be mindful that weather or other class cancellations count towards this five, unless there are extreme situations.
+
 ## Grading
-Generally, our rubrics are broken into Very Effective, Functional, Developing, and Incomplete categories for each skill area, which awards skill points. Your grade will show up with that number and a descriptor: Top Notch, Complete, Attempt, Incomplete. Please read the written comments to understand your performance instead of placing all your value on a single number. You will also see an overall comment, written feedback on your rubrics, and annotations on your documents.
+Generally, our rubrics are broken into Functional, Developing, and Draft categories for each skill area, which awards skill points. Your grade will show up with that number and a descriptor: Top Notch, Complete, Attempt, Incomplete. Please read the written comments to understand your performance instead of placing all your value on a single number. You will also see an overall comment. If you would like annotations and deeper feedback on your writing, you will schedule a project review meeting with professor HB to talk about your work page by page.
 
 The points you earn correspond to the letter grade I will input, and it all aligns with our 4.0 scale. An “A” requires earning 40 points with at least 4 points in each project category, B is 30 points, C is 20 points, and D is 10 points. The class has a total of 60+ points, so you can pick and choose which assignments to complete. Your grade is NOT A PERCENTAGE OF THE TOTAL.
 
 The course is graded like a video game. You will earn points (think XP) by completing the assignments (think quests) to level up by the end of the semester. You get to choose what quests are worth the XP. Every 10 points will level you up one letter grade. 
 
-The gradebook is set-up with 0s in all upcoming projects. This gives you the clearest sense of your current work output and view of the total points you earn. One more time for those in the back: YOUR GRADE IS BASED ON TOTAL POINTS AND NOT PERCENTAGE.
+One more time for those in the back: YOUR GRADE IS BASED ON TOTAL POINTS AND NOT PERCENTAGE.
 
 By choosing the projects and point values you want, I expect the work quality and application to be higher. If you put in the effort and try to apply the content, you will earn whatever final grade you desire. Below are all the assignments and point values for the semester. 
 
 In order to get an A in this class, which is max level, you need to earn 40 points with four points from every skill group area. So basically completing projects well in every unit. You get to decide what combination of projects you want to complete to earn your grade because there are WAY more points available than necessary for an “A.”
 
 ## Canvas Pages
-All right, so I think that is our overall tour and overview of Canvas. Everything you need is right here on this homepage. I will keep publishing things weekly as we go through the semester so it stays tidy and up-to-date
+Everything you need is on the homepage. There are links to the reading materials, lab work, projects, and contact information. Each week the Spotlight links and announcements are posted first to help you quickly navigate. Otherwise you can access content through the navigation bar.
 
 ### Canvas Homepage
 The homepage built this page to be your hub of content with everything you need–navigation and course progress wise. 
@@ -165,7 +177,7 @@ So, your weekly homework, which are things you need to do on your own schedule�
 3: The content has created with 1 week’s worth of work in mind. I want you to take several days to break up the content and not half pay attention while you power through it all in one day. If you do finish the required content early, then you should explore the bonus content OR focus on another class OR give yourself some relaxation and self-care time. Either way, I don’t want you to work ahead and put more content on your schedule and plate than necessary. I’m low-key forcing you to chill out and take your time with this course.
 
 ### Canvas Reading Pages
-Inside the Reading Page, each week will have the same expectation. I will link a YouTube Shorts video with any announcements and reminders for the week. Then I provide the Required Materials, Reflection Prompts, Bonus Materials, and links to Quiz and Document Practice.
+Inside the Reading Page, each week will have the same expectation. I provide the Required Materials, Reflection Prompts, Bonus Materials, and links to Quiz and Document Practice.
 
 So everything inside this Required Material Box is used of the quiz and directly related to your projects. 
 
@@ -197,14 +209,14 @@ At the bottom, I will also give you links back to contact me, so you can chat wi
 ### Lab Pages
 For the Lab Materials–which are cross-linked on the reading page–I will give you a loose lesson plan with the time frame, topic, and activity that we will do. So if you need to miss class or leave early or whatever, you have an idea of what you missed. I also link the notetaking guide, this is the same one from the reading page, and the slide deck I will use during lab sessions. Finally I will link the recording of the lab session for you. These will get linked on Thursday morning, and I will probably just pick the one “best” session from my schedule. I have three sections of this class.
 
+The lab pages are assignments because you will submit the reflections after the day.
+
 ### Project and Assignment Pages
 The final thing is a quick overview of what to expect in the project portal. The name of the project includes a symbol (Square, Circle, Diamond, and Cameras) to represent the major groups. Then the due date and the point max. 
 
 Canvas will also show you what you're submitting with the accepted file types. If your work isn’t uploading, check that you have the right file type…basically always a PDF, I will accept TXT and HTML as long as you write in markdown including the source info for your images, etc. (so probably not many of you will want to do that given the types of projects we are completing). The available date includes your automatic 48-hour, no questions asked, no penalty extension. After the available date–the extension–you missed the project and need to pick up a different quest of your XP.
 
-Then I have three cards summarizing the key points: when with a general estimate of the time frame, the WHAT you are working towards, and the WHY of grading. By active time, I estimated this based on like “I’m focused and actually, actually working on it.” Not the…I’m watching Twitch and sorta thinking about it type of hours. No shade. Sometimes I take ages to do things because I’m not really being active or focused about it.
-
-Then you have your brief. So these are all of the details. If you are a little overwhelmed with this view or it's just not opening on your computer well, there is a plain text version that you can load and print with all the details.
+Then you have your brief. So these are all of the details. If you are a little overwhelmed with this view or it's just not opening on your computer well, there is a plain version that you can load and print with all the details.
 
 Read the summary to grasp the scope of the project. Then expand these panels for your situation, required elements, and skills to practice. Use these as a checklist to maximize your points and make sure you don’t waste your own time. Read the skills section to decide if this project aligns with your career and what you want to improve. If it isn’t…then make a different choice OR think harder about your career ‘soft’ and core skills.
 
@@ -212,10 +224,7 @@ After all of the key details, there's just a little product checks. These are ju
 
 I will most always give you examples and templates. If you open them up, you can grab my Sample of the project with a Speedbuild video of me making the sample. I will explain what tools I’m using and give little tips on the process. You can also see past student samples and workplace examples–so how do these skills and document show up in the professional world compared to our obviously ‘mock’ situations that I crafted to practice really key things and more standard or ‘proper’ strategies.
 
-I also provide an FAQ section, this project manual where I get more detailed with how to complete the project. That is for when you feel really lost or inspired, I sort of walk more step by step what you could do. And you have a Word and Google Doc template. Mostly I recommend using Office products because they are more suited and powerful for this type of work but either generally gets the job done.
-
 And then this project checklist that is just to help you evaluate your work before submitting. It is a reminder of what you should do to help boost your points AND answering these questions can help you with the project completion reports that you will write for basically every project.
 
-Finally, the rubric will be posted. It typically will break down like 50% for the requirements, 30% for the presentation (editing and design), 10% for the CAMP application (did you create something that actual fits the audience situation I provided or is just random), and 10% for overall Impression and Impact (that WOW factors that…all of you CAN score but typically only 20% do just because only about 20% will care enough to put that much effort, creativity, and application into the work). 
+Finally, the rubric will be posted.
 
-No shade. I get it. But I will acknowledge that more impressive work with the final 10% score.
