@@ -1,6 +1,6 @@
 # Technical Video
 
-This project is part of the Media Skill Group (\#4), so the points contribute to the overall total and the Group 4 points. The highest score from the media group will be used with the three lowest or skipped dropped. Students should pick the one media and video production project they want to complete.
+This project is part of the Media Skill Group (#4), so the points contribute to the overall total and the Group 4 points. The highest score from the media group will be used with the three lowest or skipped dropped. Students should pick the one media and video production project they want to complete.
 
 Students should refer to the links, resources, rubrics, and other complete information on Canvas. They can schedule office hours with the professor through the Office Hours link on the Canvas homepage or by email at hblackbu@uccs.edu. 
 
@@ -82,9 +82,9 @@ Your project will be graded on the following required elements:
    * *Applications:* how the skills, technology, and experiences from this project will help you improve as a professional in your field  
 2. 3-6 Minute Video, published to YouTube, Stream, Vimeo, etc.  
    * Explain the topic verbally and visually using logos (logic), pathos (connection), and ethos (credibility)  
-     * 1\. Introduce yourself and your topic  
-     * 2\. Explain the history, context, and developments of your topic  
-     * 3\. Describe why or how your topic is applicable for the audience  
+     * 1. Introduce yourself and your topic  
+     * 2. Explain the history, context, and developments of your topic  
+     * 3. Describe why or how your topic is applicable for the audience  
    * Adjust your vocal variety (speed, rate, tone)  
    * Edits, screen changes, b-roll, and visual production elements
 
@@ -104,9 +104,9 @@ The project is worth a maximum of 6 points. You can receive partial credit based
 
 ## Due Date
 
-Submit your work by February 15\. The portal closes on February 17\. You must upload a PDF containing your retrospective memo and project.
+Submit your work by February 15. The portal closes on February 17. You must upload a PDF containing your retrospective memo and project.
 
-Plan to submit a few hours before the due date to give yourself a buffer for the unexpected. You can use the 48-hour extension/grace period if something comes up. If you miss the grace period, you missed the project. You can use the ⭐Super Extension \- 5/13 for one missed project.
+Plan to submit a few hours before the due date to give yourself a buffer for the unexpected. You can use the 48-hour extension/grace period if something comes up. If you miss the grace period, you missed the project. You can use the ⭐Super Extension - 5/13 for one missed project.
 
 ## Skills and Outcomes
 

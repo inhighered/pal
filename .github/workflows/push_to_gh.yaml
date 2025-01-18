@@ -1,8 +1,0 @@
-name: Push Image To GH
-
-on:
-  # push:
-  #   branches:
-  #     - main
-  workflow_dispatch:
-      

@@ -1,6 +1,6 @@
 # LLM Challenge: Descriptions
 
-This project is part of the Descriptions Skill Group (\#1), so the points contribute to the overall total and the Group 1 points.
+This project is part of the Descriptions Skill Group (#1), so the points contribute to the overall total and the Group 1 points.
 
 Students should refer to the links, resources, rubrics, and other complete information on Canvas. They can schedule office hours with the professor through the Office Hours link on the Canvas homepage or by email at hblackbu@uccs.edu. 
 
@@ -84,7 +84,7 @@ The project is worth a maximum of 2 points. You can receive partial credit based
 
 ## Due Date
 
-Submit your work by February 22\. The portal closes on February 24\. You must upload a PDF containing your retrospective memo and project.
+Submit your work by February 22. The portal closes on February 24. You must upload a PDF containing your retrospective memo and project.
 
 ## Skills and Outcomes
 

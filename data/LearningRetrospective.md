@@ -16,7 +16,7 @@ Our technical writing firm sent you to a professional development conference on 
 
 **The Asks:**
 
-* Ask 1: Summarize the key concepts from each conference session in the module (the weeks within Group 1, Group 2, or Group 3\)  
+* Ask 1: Summarize the key concepts from each conference session in the module (the weeks within Group 1, Group 2, or Group 3)  
   * Ask 2: Explain how the concepts from different sessions relate to each other and contribute to effective document design.  
   * Ask 3: Develop actionable recommendations for the team to implement the learned concepts and improve report quality.  
     
@@ -81,9 +81,9 @@ The project is worth a maximum of 2 points. You can receive partial credit based
 
 ## Due Date
 
-Submit your work by May 13\. The portal closes on May 15\. You must upload a PDF containing your project.
+Submit your work by May 13. The portal closes on May 15. You must upload a PDF containing your project.
 
-Plan to submit a few hours before the due date to give yourself a buffer for the unexpected. You can use the 48-hour extension/grace period if something comes up. If you miss the grace period, you missed the project. You can use the ⭐Super Extension \- 5/13 for one missed project.
+Plan to submit a few hours before the due date to give yourself a buffer for the unexpected. You can use the 48-hour extension/grace period if something comes up. If you miss the grace period, you missed the project. You can use the ⭐Super Extension - 5/13 for one missed project.
 
 ## Skills and Outcomes
 

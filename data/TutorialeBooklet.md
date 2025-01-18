@@ -1,6 +1,6 @@
 # Tutorial eBooklet
 
-This project is part of the Instructions Skill Group (\#2), so the points contribute to the overall total and the Group 2 points.
+This project is part of the Instructions Skill Group (#2), so the points contribute to the overall total and the Group 2 points.
 
 Students should refer to the links, resources, rubrics, and other complete information on Canvas. They can schedule office hours with the professor through the Office Hours link on the Canvas homepage or by email at hblackbu@uccs.edu. 
 
@@ -26,7 +26,7 @@ The Asks:
 
 The Who: New university students. Consider their potential needs and challenges as they transition to college life. They may be unfamiliar with the university's technology resources as their highschool may have been a Google or a Microsoft school, which is different from the university. Assume they have basic computer skills but may not be advanced users of Microsoft 365 or Google Workspace.
 
-The Style: They need clear, step-by-step instructions with visuals to guide them through the chosen tutorial, so you should write this product in an [Interpretive Style](https://pressbooks.pub/hayleyinhighered/chapter/intro-to-technical-writing/). It is like the more simplified version of the scholarly and the functional and meant for audiences who are just learning about a topic or only kind of need to know how and why things work. They don’t necessarily THE details to really KNOW, know the topic. They just need enough to understand the big principles and get the job done. Be encouraging, relatable, and helpful, and approachable. You can be a little silly and creative because the target audience is first-time first-year students (\~18 years old). 
+The Style: They need clear, step-by-step instructions with visuals to guide them through the chosen tutorial, so you should write this product in an [Interpretive Style](https://pressbooks.pub/hayleyinhighered/chapter/intro-to-technical-writing/). It is like the more simplified version of the scholarly and the functional and meant for audiences who are just learning about a topic or only kind of need to know how and why things work. They don’t necessarily THE details to really KNOW, know the topic. They just need enough to understand the big principles and get the job done. Be encouraging, relatable, and helpful, and approachable. You can be a little silly and creative because the target audience is first-time first-year students (~18 years old). 
 
  
 
@@ -79,7 +79,7 @@ Your PDF submission will be graded on these areas:
 2. Title page with the prompt, relevant visual, and a small table of contents  
 3. Purpose of your tutorial and how it helps students find success in college  
 4. Summary of the set-up and any other preparation materials  
-5. Detailed instructions that explain each step of the tutorial (\~8-12 steps)  
+5. Detailed instructions that explain each step of the tutorial (~8-12 steps)  
 6. Visuals that guide user understanding of the step with annotations for clarity  
 7. Explanation of two features for digital accessibility included in the app  
 8. Troubleshooting or FAQ section that anticipates problems the user may encounter (3+ topics)  
@@ -105,9 +105,9 @@ The project is worth a maximum of 6 points. You can receive partial credit based
 
 ## Due Date
 
-Submit your work by March 22\. The portal closes on March 24\. You must upload a PDF containing your retrospective memo and project.
+Submit your work by March 22. The portal closes on March 24. You must upload a PDF containing your retrospective memo and project.
 
-Plan to submit a few hours before the due date to give yourself a buffer for the unexpected. You can use the 48-hour extension/grace period if something comes up. If you miss the grace period, you missed the project. You can use the ⭐Super Extension \- 5/13 for one missed project.
+Plan to submit a few hours before the due date to give yourself a buffer for the unexpected. You can use the 48-hour extension/grace period if something comes up. If you miss the grace period, you missed the project. You can use the ⭐Super Extension - 5/13 for one missed project.
 
 ## Skills and Outcomes
 

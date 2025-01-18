@@ -1,12 +1,12 @@
 # Design Tools Challenge
 
-This project is part of the Instructions Skill Group (\#2), so the points contribute to the overall total and the Group 2 points.
+This project is part of the Instructions Skill Group (#2), so the points contribute to the overall total and the Group 2 points.
 
 Students should refer to the links, resources, rubrics, and other complete information on Canvas. They can schedule office hours with the professor through the Office Hours link on the Canvas homepage or by email at hblackbu@uccs.edu. 
 
 ## Project Scope
 
-Our company needs a new safety poster in the warehouse. Unfortunately, OSHA doesn't provide customized colors and versions of their standards poster. You've been tasked with replicating the information--taking care to preserve as much as possible with all the content-- while changing the colors. Your version must follow the organization's color codes by replacing everything with black \#000000, gold \#cfb87c, white \#ffffff,  grey \#565a5c and light grey \#a2a4a3.
+Our company needs a new safety poster in the warehouse. Unfortunately, OSHA doesn't provide customized colors and versions of their standards poster. You've been tasked with replicating the information--taking care to preserve as much as possible with all the content-- while changing the colors. Your version must follow the organization's color codes by replacing everything with black #000000, gold #cfb87c, white #ffffff,  grey #565a5c and light grey #a2a4a3.
 
 *The first step of ANY project is setting up the CAMP site. This section breaks down the assignment scenario into the key components: CONTEXT, AUDIENCE, MESSAGE, and PRODUCT. This will help you understand the client's needs and how to approach this technical writing project.*
 
@@ -16,7 +16,7 @@ The Goals: Replicate the provided file as closely as possible to show your skill
 
 The Asks:
 
-* Ask 1: Use the Poster\_Design\_OSHA.pdf to manipulate the provided copy using a design tool (like Canva, Adobe, etc.)  
+* Ask 1: Use the Poster_Design_OSHA.pdf to manipulate the provided copy using a design tool (like Canva, Adobe, etc.)  
 * Ask 2: Write a project completion report
 
  
@@ -40,7 +40,7 @@ Purpose Statement: N/A
 
 ### PRODUCT: What to Replicate
 
-You are replicating this Poster\_Design\_OSHA.pdf Download Safety Poster from OSHAto align with our organizational branding. 
+You are replicating this Poster_Design_OSHA.pdf Download Safety Poster from OSHAto align with our organizational branding. 
 
  
 
@@ -61,7 +61,7 @@ Your work will be graded based on the following requirements:
    2. *Process Reflection:* why you made your creative choices and solved problems during the project  
    3. *Applications:* how the skills, technology, and experiences from this project will help you improve as a professional in your field  
 2. Replicated document that includes a close match for the header, headings, sidebars/columns, text box, diagram, fonts, colors, and icons.  
-3. Your poster should look like the reference except for the colors all changed to be UCCS themed (black \#000000, gold \#cfb87c, white \#ffffff, and grey \#565a5c and  \#a2a4a3).
+3. Your poster should look like the reference except for the colors all changed to be UCCS themed (black #000000, gold #cfb87c, white #ffffff, and grey #565a5c and  #a2a4a3).
 
 You must include polished writing, visuals, and design throughout the sections.
 
@@ -74,9 +74,9 @@ The project is worth a maximum of 2 points. You can receive partial credit based
 
 ## Due Date
 
-Submit your work by March 22\. The portal closes on March 24\. You must upload a PDF containing your retrospective memo and project.
+Submit your work by March 22. The portal closes on March 24. You must upload a PDF containing your retrospective memo and project.
 
-Plan to submit a few hours before the due date to give yourself a buffer for the unexpected. You can use the 48-hour extension/grace period if something comes up. If you miss the grace period, you missed the project. You can use the ⭐Super Extension \- 5/13 for one missed project.
+Plan to submit a few hours before the due date to give yourself a buffer for the unexpected. You can use the 48-hour extension/grace period if something comes up. If you miss the grace period, you missed the project. You can use the ⭐Super Extension - 5/13 for one missed project.
 
 ## Skills and Outcomes
 

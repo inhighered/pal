@@ -1,6 +1,6 @@
 # Recommendation Report
 
-This project is part of the Research Skill Group (\#3), so the points contribute to the overall total and the Group 3 points. Only one of the report options will count for credit, so students need to select between the Recommendation OR the Usability Report. Do not attempt to complete both as the scope and work is larger than the timeline for this class.
+This project is part of the Research Skill Group (#3), so the points contribute to the overall total and the Group 3 points. Only one of the report options will count for credit, so students need to select between the Recommendation OR the Usability Report. Do not attempt to complete both as the scope and work is larger than the timeline for this class.
 
 Students should refer to the links, resources, rubrics, and other complete information on Canvas. They can schedule office hours with the professor through the Office Hours link on the Canvas homepage or by email at hblackbu@uccs.edu. 
 
@@ -79,7 +79,7 @@ To earn full credit, you need to Write a formal cover letter that summarizes the
 Your project will be graded on the following required elements:
 
 1. Formal cover letter addressed to a relevant stakeholder-- pick a real body to address the letter  
-2. Title page with all citation information (author, date, publisher) \--so people can cite your report in their work  
+2. Title page with all citation information (author, date, publisher) --so people can cite your report in their work  
 3. A descriptive Abstract or Executive Summary that provides an overview of the purpose and key content  
 4. Well-formatted table of contents and list of figures/tables  
 5. Orientation to the situation: introduction and a problem/background section  
@@ -111,9 +111,9 @@ The project is worth a maximum of 8 points. You can receive partial credit based
 
 ## Due Date
 
-Submit your work by April 26\. The portal closes on April 28\. You must upload a PDF containing your retrospective memo and project.
+Submit your work by April 26. The portal closes on April 28. You must upload a PDF containing your retrospective memo and project.
 
-Plan to submit a few hours before the due date to give yourself a buffer for the unexpected. You can use the 48-hour extension/grace period if something comes up. If you miss the grace period, you missed the project. You can use the ⭐Super Extension \- 5/13 for one missed project.
+Plan to submit a few hours before the due date to give yourself a buffer for the unexpected. You can use the 48-hour extension/grace period if something comes up. If you miss the grace period, you missed the project. You can use the ⭐Super Extension - 5/13 for one missed project.
 
 ## Skills and Outcomes
 

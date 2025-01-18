@@ -1,6 +1,6 @@
 # Project Portfolio
 
-This project is part of the Media Skill Group (\#4), so the points contribute to the overall total and the Group 4 points. The highest score from the media group will be used with the three lowest or skipped dropped. Students should pick the one media and video production project they want to complete.
+This project is part of the Media Skill Group (#4), so the points contribute to the overall total and the Group 4 points. The highest score from the media group will be used with the three lowest or skipped dropped. Students should pick the one media and video production project they want to complete.
 
 Students should refer to the links, resources, rubrics, and other complete information on Canvas. They can schedule office hours with the professor through the Office Hours link on the Canvas homepage or by email at hblackbu@uccs.edu. 
 
@@ -48,10 +48,10 @@ Key Content:
 
 * Section 1: Introduction: Overview of technical writing and its importance.  
 * Section 2: Genre/Concept 1: Video/podcast explanation, example, description (audience, definition, features, best practices).  
-* Section 3: Genre/Concept 2: (Repeat format from Section 2\)  
-* Section 4: Genre/Concept 3: (Repeat format from Section 2\)  
-* Section 5: Genre/Concept 4: (Repeat format from Section 2\)  
-* Section 6: Genre/Concept 5: (Repeat format from Section 2\)  
+* Section 3: Genre/Concept 2: (Repeat format from Section 2)  
+* Section 4: Genre/Concept 3: (Repeat format from Section 2)  
+* Section 5: Genre/Concept 4: (Repeat format from Section 2)  
+* Section 6: Genre/Concept 5: (Repeat format from Section 2)  
 * Section 7: Call to Action: Encourage potential clients to contact the firm for their technical writing needs.  
 * Project Completion Report: Reflect on your experience, including challenges faced and lessons learned.
 
@@ -111,9 +111,9 @@ The project is worth a maximum of 6 points. You can receive partial credit based
 
 ## Due Date
 
-Submit your work by May 10\. The portal closes on May 12\. You must upload a PDF containing your retrospective memo and project.
+Submit your work by May 10. The portal closes on May 12. You must upload a PDF containing your retrospective memo and project.
 
-Plan to submit a few hours before the due date to give yourself a buffer for the unexpected. You can use the 48-hour extension/grace period if something comes up. If you miss the grace period, you missed the project. You can use the ⭐Super Extension \- 5/13 for one missed project.
+Plan to submit a few hours before the due date to give yourself a buffer for the unexpected. You can use the 48-hour extension/grace period if something comes up. If you miss the grace period, you missed the project. You can use the ⭐Super Extension - 5/13 for one missed project.
 
 ## Skills and Outcomes
 
@@ -123,7 +123,7 @@ When completing this project, you should focus on several skills related to the 
 
 * Practices technological adaptability by learning/using interactive products  
 * Practices writing purpose statements and orienting an audience to the content  
-* Practices creative thinking by converting written content into new mediums. Have fun with these-- your audience is interested in non-experts, and your goal is to engage \+ explain  
+* Practices creative thinking by converting written content into new mediums. Have fun with these-- your audience is interested in non-experts, and your goal is to engage + explain  
 * Practices critical thinking and professional awareness for the strategies STEM, Business, and most any workplace writing uses to share actionable, necessary content
 
 I won't pretend that portfolios are common in the workplace for most of your chosen majors. But you may need to explain concepts and build an archive of informational materials. You might also end up in consulting roles with potential clients questioning what value you offer.

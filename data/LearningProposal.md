@@ -54,7 +54,7 @@ Consider what you want you earn in the course and the focus you want to pursue.
 * I want to focus on Engineering Projects-While all of the genres, skills, and practices in this course contribute to STEM career paths, I recommend focusing your attention on the following assignments as MORE catered to practical engineering careers (*but you can make any assignment related to engineering*): Reference Library, Tutorial eBooklet, LLM Challenge: Descriptions, AI Challenge: SOP, Progress Report, Recorded Presentation, Recommendation Report, and keep up with all the participation.  
 * I want to focus on Computer Science and Dev Projects- While all of the genres, skills, and practices in this course contribute to STEM career paths, I recommend focusing your attention on the following assignments as MORE catered to digital and computer application careers (*but you can make any assignment relate to CS*): Reference Library, Technical Video or Video Demo, Tutorial eBooklet, Prototype Brief, Progress Report, Usability Report, and keep up with all the participation.  
 * I want to spend minimal time and effort while still passing--Respect. The lower-point assignments are also easier and faster to complete because they require less creativity and concept application (but you will still practice the core skills). If you want to get by with a passing "C" grade in an efficient, easy way, I recommend focusing on all the participation points and a few small projects to earn your 20 total points.  
-* I'm a technical writing major or minor: Yay\! Happy to have you in the program\! You should follow the "A" path to get experience across all the major contexts. And then complete the Text Tools Challenge and the Design Tools Challenge to practice with our core software.
+* I'm a technical writing major or minor: Yay! Happy to have you in the program! You should follow the "A" path to get experience across all the major contexts. And then complete the Text Tools Challenge and the Design Tools Challenge to practice with our core software.
 
  
 
@@ -74,10 +74,10 @@ Your project will be graded on the following required elements:
 
 1. Introduction: Briefly state your overall goal for the course (e.g., "To achieve an A in this course by demonstrating mastery of technical writing principles and producing high-quality work.")  
 2. Project Plan: Outline your approach to each major project. Include:  
-   * Target completion dates (aim to finish ahead of the deadline\!)  
+   * Target completion dates (aim to finish ahead of the deadline!)  
    * Strategies for time management (e.g., breaking down tasks, allocating specific time slots)  
    * Resources you'll utilize (e.g., textbooks, online resources, study groups)  
-3. Grade Breakdown: Based on the course grading rubric, how will you earn the grade you desire? Be specific\! For example:  
+3. Grade Breakdown: Based on the course grading rubric, how will you earn the grade you desire? Be specific! For example:  
    * "I will earn an A on all major projects by carefully following instructions, revising my work thoroughly, and seeking feedback."  
    * "I will actively participate in class discussions and contribute meaningfully to peer reviews."  
 4. Contingency Plan: What will you do if you encounter unexpected challenges or fall behind schedule? (e.g., "If I struggle with a particular concept, I will seek help from the instructor or a tutor.")
@@ -95,9 +95,9 @@ The project is worth a maximum of 2 points. You can receive partial credit based
 
 ## Due Date
 
-Submit your work by February 1\. The portal closes on February 3\. You must upload a PDF containing your project.
+Submit your work by February 1. The portal closes on February 3. You must upload a PDF containing your project.
 
-Plan to submit a few hours before the due date to give yourself a buffer for the unexpected. You can use the 48-hour extension/grace period if something comes up. If you miss the grace period, you missed the project. You can use the ⭐Super Extension \- 5/13 for one missed project.
+Plan to submit a few hours before the due date to give yourself a buffer for the unexpected. You can use the 48-hour extension/grace period if something comes up. If you miss the grace period, you missed the project. You can use the ⭐Super Extension - 5/13 for one missed project.
 
 ## Skills and Outcomes
 

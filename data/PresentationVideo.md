@@ -1,6 +1,6 @@
 # Instructional Video
 
-This project is part of the Media Skill Group (\#4), so the points contribute to the overall total and the Group 4 points. The highest score from the media group will be used with the three lowest or skipped dropped. Students should pick the one media and video production project they want to complete.
+This project is part of the Media Skill Group (#4), so the points contribute to the overall total and the Group 4 points. The highest score from the media group will be used with the three lowest or skipped dropped. Students should pick the one media and video production project they want to complete.
 
 Students should refer to the links, resources, rubrics, and other complete information on Canvas. They can schedule office hours with the professor through the Office Hours link on the Canvas homepage or by email at hblackbu@uccs.edu. 
 
@@ -8,7 +8,7 @@ Students should refer to the links, resources, rubrics, and other complete infor
 
 The local "Pitch for Good" competition has issued its CFP and theme. This is your chance to secure funding for a STEM, education, or health-focused project that addresses a pressing social challenge on behalf of your think tank and firm.  The judges are looking for novel ideas that connect to equity, sustainability, and other cultural issues to improve conditions for most people. The competition requires you to submit a compelling verbal proposal as a pitch video for investors and legislators. The final video will be 3-6 minutes long and will be submitted as a link so I can view it on YouTube, Vimeo, Stream, etc.
 
-NOTE: The top 5 pitches will advance to the voting round of the competition, where the public provides input. The top 3 pitches will be awarded for their work to claim on portfolios.\*\*Seriously though, I will decide on the Top 5 in the class to advance to a voting round with your classmates (not the actual public). I will send out a form with the pitches for the class to review and vote for the last two weeks of class. The winner will be notified during finals week and receive 1 point plus a certificate for your LinkedIn portfolio. If you are selected, you can opt-out if you don't feel comfortable.\*\*
+NOTE: The top 5 pitches will advance to the voting round of the competition, where the public provides input. The top 3 pitches will be awarded for their work to claim on portfolios.**Seriously though, I will decide on the Top 5 in the class to advance to a voting round with your classmates (not the actual public). I will send out a form with the pitches for the class to review and vote for the last two weeks of class. The winner will be notified during finals week and receive 1 point plus a certificate for your LinkedIn portfolio. If you are selected, you can opt-out if you don't feel comfortable.**
 
 *The first step of ANY project is setting up the CAMP site. This section breaks down the assignment scenario into the key components: CONTEXT, AUDIENCE, MESSAGE, and PRODUCT. This will help you understand the client's needs and how to approach this technical writing project.*
 
@@ -81,9 +81,9 @@ Your project will be graded on the following required elements:
    * Minimal use of bullet points (the actual symbol). Use shapes, layering, icons, more slides to convey ideas  
 3. 3-6 Minute Recorded Presentation, published to YouTube, Stream, Vimeo, etc.  
    * Explain the topic verbally and visually using logos (logic), pathos (connection), and ethos (credibility)  
-     * 1\. Introduce yourself and your topic  
-     * 2\. Explain the problem and the solution you are pitching  
-     * 3\. Describe why your solution is logical to persuade the audience to support your idea  
+     * 1. Introduce yourself and your topic  
+     * 2. Explain the problem and the solution you are pitching  
+     * 3. Describe why your solution is logical to persuade the audience to support your idea  
    * Adjust your vocal variety (speed, rate, tone)  
    * Dress in business casual attire and make eye contact with the camera
 
@@ -103,9 +103,9 @@ The project is worth a maximum of 6 points. You can receive partial credit based
 
 ## Due Date
 
-Submit your work by April 19\. The portal closes on April 21\. You must upload a PDF containing your retrospective memo and project.
+Submit your work by April 19. The portal closes on April 21. You must upload a PDF containing your retrospective memo and project.
 
-Plan to submit a few hours before the due date to give yourself a buffer for the unexpected. You can use the 48-hour extension/grace period if something comes up. If you miss the grace period, you missed the project. You can use the ⭐Super Extension \- 5/13 for one missed project.
+Plan to submit a few hours before the due date to give yourself a buffer for the unexpected. You can use the 48-hour extension/grace period if something comes up. If you miss the grace period, you missed the project. You can use the ⭐Super Extension - 5/13 for one missed project.
 
 ## Skills and Outcomes
 
@@ -118,7 +118,7 @@ When completing this project, you should focus on several skills related to the 
 * Practices leveraging persuasive appeals to support learning about topics  
 * Practices designing a handout to accompany presentations
 
-Formal presentations aren't \*that\* common in the average workplace unless your job is in account management, project management, or product management (basically, if your title has management, then it is more likely) or you frequently demo products with the marketing team. Instead of focusing on the presentation part, think more about your skills in confidently explaining your knowledge, exerting influence and persuasive techniques, and articulating complex ideas in different formats.
+Formal presentations aren't *that* common in the average workplace unless your job is in account management, project management, or product management (basically, if your title has management, then it is more likely) or you frequently demo products with the marketing team. Instead of focusing on the presentation part, think more about your skills in confidently explaining your knowledge, exerting influence and persuasive techniques, and articulating complex ideas in different formats.
 
 By mastering these skills through this presentation, you'll be better equipped to excel in your future career, regardless of the specific industry or role you choose.
 
